@@ -1,0 +1,15 @@
+pcm.!default {
+    type plug
+    slave { pcm "pulse" }
+}
+
+pcm.pulse {
+    type pulse
+}
+
+ctl.mixer0 {
+    type hw
+    card 0
+}
+
+defaults.pcm.rate_converter "speedxrate_medium"
