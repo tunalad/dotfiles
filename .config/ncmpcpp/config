@@ -1,0 +1,85 @@
+# Dirs
+mpd_music_dir = "~/Music"
+lyrics_directory  = "~/Music/lyrics"
+ncmpcpp_directory  = "~/.config/ncmpcpp"
+mpd_host = "localhost"
+mpd_port = "6600"  
+mpd_connection_timeout = "0"  
+mpd_crossfade_time = "0"  
+
+# Playlist
+playlist_disable_highlight_delay = "0"  
+playlist_display_mode = "columns"  
+browser_display_mode = "columns"  
+colors_enabled = "yes"  
+main_window_color = "cyan"  
+header_window_color = "cyan"  
+volume_color = "cyan"
+progressbar_color = "black"
+statusbar_color = "white"
+active_window_border = "cyan"
+song_columns_list_format = " (11)[cyan]{l} (17)[cyan]{a} (0)[white]{t} "
+user_interface = "classic"
+default_place_to_search_in = "database"
+
+# Visualizer
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_type = "spectrum" (spectrum/wave)
+visualizer_in_stereo = "yes"
+visualizer_look = "█┇" # other strange characters: ▋░ ●▒ ▋▋
+visualizer_color = "cyan"
+
+# Navigation
+cyclic_scrolling = "yes"
+header_text_scrolling = "yes"
+jump_to_now_playing_song_at_start = "yes"
+lines_scrolled = "3"
+
+# Other
+system_encoding = "utf-8"
+regular_expressions = "extended"
+
+# Selected tracks
+selected_item_prefix = "* "
+discard_colors_if_item_is_selected = "no"
+
+# Seeking
+incremental_seeking = "yes"
+seek_time = "1"
+
+# Visivility
+header_visibility = "yes"
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+#progressbar_look =  "─╼ "
+#progressbar_look =  "■◣ "
+#progressbar_look = "▶▶─"
+#progressbar_look =  "●● "
+#progressbar_look =  "◆◆◇"
+#progressbar_look =  "●●○"
+progressbar_look =  "▬▬▭"
+progressbar_elapsed_color = "white"
+now_playing_prefix = $b
+now_playing_suffix = $/b
+# redlavender
+#song_status_format = " $6$b❮$4$b❮ $6$b%a $4$b❙$6$b❙ $8$b%t $4$b❯$6$b❯ "
+# oceanblue
+song_status_format = " $7$b❮$5$b❮ $7$b%a $5$b❙$7$b❙ $1$b%t $5$b❯$7$b❯ "
+autocenter_mode = "yes"
+centered_cursor = "yes"
+
+# Misc
+enable_window_title = "no"
+startup_screen = playlist
+startup_slave_screen = "visualizer"
+startup_slave_screen_focus = no
+locked_screen_width_part = 50
+ask_for_locked_screen_width_part = no
+display_bitrate = "no"
+follow_now_playing_lyrics = "yes"
+ignore_leading_the = "yes"
+empty_tag_marker = ""
+external_editor = "nvim"
+execute_on_song_change= "~/.config/ncmpcpp/scripts/song_notify.sh"
+#execute_on_song_change= notify-send "Now Playing" "$(mpc --format '%title% - %artist%' current)"

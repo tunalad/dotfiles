@@ -1,0 +1,132 @@
+
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 1.8.7
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
+
+# The release modifier is not a standard X modifier, but you can
+# use it if you want to catch release events instead of press events
+
+# By defaults, xbindkeys does not pay attention with the modifiers
+# NumLock, CapsLock and ScrollLock.
+# Uncomment the lines above if you want to pay attention to them.
+
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
+
+# open binds
+"pcmanfm"
+    m:0x15 + c:41
+    Control+Shift+Mod2 + f
+"firefox"
+    m:0x15 + c:56
+    Control+Shift+Mod2 + b
+"firefox"
+    m:0x10 + c:180
+    Mod2 + XF86HomePage
+"$TERMINAL -e ncmpcpp"
+    m:0x10 + c:179
+    Mod2 + XF86Tools
+"$TERMINAL -e neomutt"
+    m:0x10 + c:163
+    Mod2 + XF86Mail
+
+# brightness control
+"~/.scripts/brightnessctl.sh -dec"
+    m:0x10 + c:232
+    Mod2 + XF86MonBrightnessDown
+"~/.scripts/brightnessctl.sh -inc"
+    m:0x10 + c:233
+    Mod2 + XF86MonBrightnessUp
+
+# keyboard layout control
+"~/.scripts/kblayout.sh"
+    m:0x1c + c:46
+    Control+Alt+Mod2 + l
+"~/.scripts/kblayout.sh"
+    m:0x19 + c:46
+    Shift+Alt+Mod2 + l
+
+# volume control
+"~/.scripts/volumectl.sh -inc"
+   XF86AudioRaiseVolume
+"~/.scripts/volumectl.sh -dec"
+   XF86AudioLowerVolume
+"~/.scripts/volumectl.sh -t"
+   XF86AudioMute
+
+# multimedia keys
+"playerctl play-pause"
+    m:0x10 + c:172
+    Mod2 + XF86AudioPlay
+"playerctl stop"
+    m:0x10 + c:174
+    Mod2 + XF86AudioStop
+"playerctl previous"
+    m:0x10 + c:173
+    Mod2 + XF86AudioPrev
+"playerctl next"
+    m:0x10 + c:171
+    Mod2 + XF86AudioNext
+
+# screenshot tool
+"~/.scripts/screenshot.sh"
+    m:0x10 + c:107
+    Mod2 + Print
+"~/.scripts/screenshot.sh --region"
+    m:0x51 + c:39
+    Shift+Mod2+Mod4 + s
+#"~/.scripts/screenshot.sh --region"
+#    Shift+Mod2+Mod4 + s + b:3
+
+
+# logout menu
+"~/.scripts/session.sh"
+    m:0x50 + c:9
+    Mod2+Mod4 + Escape
+
+#xcomp toggler
+"~/.scripts/toggle-comp.sh -t"
+    m:0x50 + c:54
+    Mod2+Mod4 + c
+#cpupower toggler
+"~/.scripts/toggle-cpupower.sh -t"
+    m:0x50 + c:33
+    Mod2+Mod4 + p
+
+# PROPER copy to clipboard function 
+# (without this, if I copy and close the window I copied from, it'll be lost)
+"xclip -o | xclip -selection clipboard -i"
+    m:0x15 + c:50
+    Control+Shift+Mod2 + Shift_L
+
+"xclip -o | xclip -selection clipboard -i"
+    m:0x14 + c:54
+    Control+Mod2 + c
+
+##################################
+# End of xbindkeys configuration #
+##################################
