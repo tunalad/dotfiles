@@ -1,0 +1,15 @@
+numlockx &
+xbindkeys &
+dunst &
+mpd &
+
+xwallpaper --zoom /usr/share/backgrounds/arch-linux-2d/Arch1.jpg &
+.scripts/dwm-statusbar.sh &
+xcompmgr &
+
+nm-applet &
+blueman-applet &
+
+xset -dpms &
+xset s off &   
+xset s noblank &
