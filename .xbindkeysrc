@@ -123,9 +123,9 @@
     m:0x15 + c:50
     Control+Shift+Mod2 + Shift_L
 
-"xclip -o | xclip -selection clipboard -i"
-    m:0x14 + c:54
-    Control+Mod2 + c
+#"xclip -o | xclip -selection clipboard -i"
+#    m:0x14 + c:54
+#    Control+Mod2 + c
 
 ##################################
 # End of xbindkeys configuration #
