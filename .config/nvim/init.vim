@@ -1,11 +1,10 @@
-syntax on
+filetype plugin indent on
 set number
 set wildmode=full
 set backspace=indent,eol,start
 set hidden
-filetype plugin indent on
+set clipboard+=unnamedplus
 syntax on
-
 
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
