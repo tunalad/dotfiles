@@ -4,7 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-neofetch
+awk '{print "uptime: " int($1/3600)":"int(($1%3600)/60)":"int($1%60)}' /proc/uptime
 
 # env_vars
 export myIP=$(curl ifconfig.me/ip)
@@ -46,6 +46,7 @@ export STACK_ROOT="$XDG_DATA_HOME"/stack
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export FCEUX_HOME="$XDG_CONFIG_HOME"/fceux
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSHISTFILE=-
