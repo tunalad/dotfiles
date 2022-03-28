@@ -1,0 +1,31 @@
+#
+# ~/.config/sc-im/scimrc
+#
+
+set autocalc
+set numeric
+set numeric_decimal=0
+set overlap
+set xlsx_readformulas
+
+set default_copy_to_clipboard_cmd="xclip -i -selection clipboard <"
+set copy_to_clipboard_delimited_tab=1
+set default_paste_from_clipboard_cmd="xclip -o -selection clipboard"
+
+# CUSTOM COLORS
+DEFINE_COLOR "ARCHBLUE" 0 128 255
+#DEFINE_COLOR "ARCHBLUE" 0 95 120
+DEFINE_COLOR "VOIDGREEN" 0 120 80
+DEFINE_COLOR "BOLDWHITE" 255 255 255
+DEFINE_COLOR "BLVCK" 0 0 0
+
+color "type=HEADINGS bold=0 fg=BLACK bg=WHITE"
+color "type=HEADINGS_ODD bold=0 fg=BLACK bg=WHITE"
+
+# ARCHLINUX theme
+color "type=CELL_SELECTION fg=ARCHBLUE bg=BOLDWHITE bold=1"
+color "type=CELL_SELECTION_SC fg=BOLDWHITE bg=ARCHBLUE bold=1"
+
+# VOIDLINUX theme
+#color "type=CELL_SELECTION fg=VOIDGREEN bg=BOLDWHITE bold=1"
+#color "type=CELL_SELECTION_SC fg=BOLDWHITE bg=VOIDGREEN bold=1"
