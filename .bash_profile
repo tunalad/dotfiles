@@ -9,7 +9,6 @@ awk '{print "uptime: " int($1/3600)":"int(($1%3600)/60)":"int($1%60)}' /proc/upt
 # env_vars
 export myIP=$(curl ifconfig.me/ip)
 export EDITOR=nvim
-export XAUTHORITY=~/.Xauthority
 #export BROWSER=firefox
 xdg-settings set default-web-browser firefox.desktop
 export TERMINAL=alacritty
@@ -35,7 +34,7 @@ export NVM_DIR="$XDG_DATA_HOME"/nvm
 export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"
-#export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # COMMENT THIS LINE OUT IF YOU USE LightDM
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # COMMENT THIS LINE OUT IF YOU USE LightDM
 export SSB_HOME="$XDG_DATA_HOME"/zoom
 export GOPATH="$XDG_DATA_HOME"/go
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
