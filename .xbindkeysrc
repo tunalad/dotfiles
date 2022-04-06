@@ -99,20 +99,17 @@
 "~/.scripts/screenshot.sh --region"
     m:0x51 + c:39
     Shift+Mod2+Mod4 + s
-#"~/.scripts/screenshot.sh --region"
-#    Shift+Mod2+Mod4 + s + b:3
-
 
 # logout menu
 "~/.scripts/session.sh"
     m:0x50 + c:9
     Mod2+Mod4 + Escape
 
-#xcomp toggler
+# xcomp toggler
 "~/.scripts/toggle-comp.sh -t"
     m:0x50 + c:54
     Mod2+Mod4 + c
-#cpupower toggler
+# cpupower toggler
 "~/.scripts/toggle-cpupower.sh -t"
     m:0x50 + c:33
     Mod2+Mod4 + p
@@ -122,10 +119,6 @@
 "xclip -o | xclip -selection clipboard -i"
     m:0x15 + c:50
     Control+Shift+Mod2 + Shift_L
-
-#"xclip -o | xclip -selection clipboard -i"
-#    m:0x14 + c:54
-#    Control+Mod2 + c
 
 ##################################
 # End of xbindkeys configuration #
