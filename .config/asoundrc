@@ -12,4 +12,9 @@ ctl.mixer0 {
     card 0
 }
 
+ctl.mixer1 {
+    type hw
+    card 1
+}
+
 defaults.pcm.rate_converter "speedxrate_medium"

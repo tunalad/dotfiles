@@ -11,5 +11,5 @@ nm-applet &
 blueman-applet &
 
 xset -dpms &
-xset s off &   
 xset s noblank &
+xset s off &   
