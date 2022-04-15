@@ -1,12 +1,15 @@
 " COC CONFIG
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-json', 
-  \ 'coc-prettier',
-  \ ]
+	\ 'coc-snippets', 
+	\ 'coc-pairs', 
+	\ 'coc-tsserver', 
+	\ 'coc-prettier', 
+	\ 'coc-json', 
+	\ 
+	\ 'coc-jedi', 
+	\ 'coc-html', 
+	\ 'coc-htmldjango', 
+	\]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 

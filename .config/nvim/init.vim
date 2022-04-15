@@ -7,14 +7,14 @@ set clipboard+=unnamedplus
 syntax on
 
 call plug#begin()
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'scrooloose/nerdcommenter'
-	Plug 'gko/vim-coloresque'
-	Plug 'vim-syntastic/syntastic'
-	Plug 'ellisonleao/glow.nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
-	Plug 'romgrk/barbar.nvim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete
+	Plug 'gko/vim-coloresque' 			" cs hex colors
+	Plug 'vim-syntastic/syntastic'			" syntax checker
+	Plug 'romgrk/barbar.nvim' 			" tabs
+	Plug 'lambdalisue/vim-django-support' 		" django autocompletion
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " COC SETTINGS
 source $XDG_CONFIG_HOME/nvim/coc.vim
