@@ -7,11 +7,11 @@ set clipboard+=unnamedplus
 syntax on
 
 call plug#begin()
-	Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocomplete
-	Plug 'gko/vim-coloresque' 			" cs hex colors
+	Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion
+	Plug 'gko/vim-coloresque' 			" css/less/sass/html color preview
 	Plug 'vim-syntastic/syntastic'			" syntax checker
 	Plug 'romgrk/barbar.nvim' 			" tabs
-	Plug 'lambdalisue/vim-django-support' 		" django autocompletion
+	Plug 'lambdalisue/vim-django-support' 		" django support
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
@@ -68,3 +68,35 @@ endfunction
 
 map <silent> <A-f> :call ToggleVExplorer()<CR>
 
+""" Terminal Split
+let g:term_buf = 0
+let g:term_win = 0
+
+function! TermToggle(height)
+    if win_gotoid(g:term_win)
+        hide
+    else
+        botright new
+        exec "resize " . a:height
+        try
+            exec "buffer " . g:term_buf
+        catch
+            call termopen($SHELL, {"detach": 0})
+            let g:term_buf = bufnr("")
+            set nonumber
+            set norelativenumber
+            set signcolumn=no
+        endtry
+        startinsert!
+        let g:term_win = win_getid()
+    endif
+endfunction
+
+" Toggle terminal on/off (neovim)
+nnoremap <A-t> :call T<CR>
+inoremap <A-t> <Esc>:call TermToggle(12)<CR>
+tnoremap <A-t> <C-\><C-n>:call TermToggle(12)<CR>
+
+" Terminal go back to normal mode
+tnoremap <Esc> <C-\><C-n>
+tnoremap :q! <C-\><C-n>:q!<CR>
