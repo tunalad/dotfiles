@@ -21,8 +21,6 @@ call plug#begin()
 	Plug 'Yggdroot/indentLine' 			" tab indent visualizer
 call plug#end()
 
-let g:deoplete#enable_at_startup = 1
-
 " COC SETTINGS
 source $XDG_CONFIG_HOME/nvim/coc.vim
 
@@ -105,7 +103,7 @@ function! TermToggle(height)
 endfunction
 
 " Toggle terminal on/off (neovim)
-nnoremap <A-t> :call T<CR>
+nnoremap <A-t> :call TermToggle(12)<CR>
 inoremap <A-t> <Esc>:call TermToggle(12)<CR>
 tnoremap <A-t> <C-\><C-n>:call TermToggle(12)<CR>
 
