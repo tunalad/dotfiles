@@ -6,6 +6,13 @@
 
 awk '{print "uptime: " int($1/3600)":"int(($1%3600)/60)":"int($1%60)}' /proc/uptime
 
+# XDG Base Directories
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_RUNTIME_DIR="/run/user/1000"
+
 # env_vars
 export myIP=$(curl ifconfig.me/ip)
 export EDITOR=nvim
@@ -16,12 +23,7 @@ export TERM=xterm-256color
 export SUDO_PROMPT=$'\a'"[sudo] password for %p: "
 PATH=$PATH:~/.scripts:~/.local/bin/
 
-# XDG Base Directories
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_RUNTIME_DIR="/run/user/1000"
+export DOOMWADDIR="$XDG_CONFIG_HOME/zandronum"
 
 # ~/ junk cleaning
 export ALSA_CONFIG_PATH="$HOME/.config/asoundrc"

@@ -19,6 +19,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias nano='nano -l '
 alias cal="cal -m"
+alias rm="trash-put"
 alias ramfetch='sudo dmidecode -t 17'
 alias resrs='xrandr -s 1366x768'
 
