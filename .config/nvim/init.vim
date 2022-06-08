@@ -19,6 +19,7 @@ call plug#begin()
 	Plug 'romgrk/barbar.nvim' 			" tabs
 	Plug 'lambdalisue/vim-django-support' 		" django support
 	Plug 'Yggdroot/indentLine' 			" tab indent visualizer
+        Plug 'KabbAmine/vCoolor.vim'                    " gtk color picker
 call plug#end()
 
 " COC SETTINGS
