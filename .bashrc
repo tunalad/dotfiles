@@ -20,12 +20,11 @@ alias grep='grep --color=auto'
 alias nano='nano -l '
 alias cal="cal -m"
 alias rm="trash-put"
-alias ramfetch='sudo dmidecode -t 17'
+alias less='less -R'
+
+alias ramfetch='dmidecode -t 17'
 alias resrs='xrandr -s 1366x768'
 
 alias tint="tint -s -n -d"
 alias my-ip="curl ifconfig.me/ip"
 alias weather="curl wttr.in/rs"
-
-alias conv2csv="libreoffice --headless --convert-to csv"
-alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"

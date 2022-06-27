@@ -52,6 +52,16 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSHISTFILE=-
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
+export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
+export WINEPREFIX="$XDG_DATA_HOME"/wine
+
+alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
+alias xbindkeys=xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/config
+alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 
 # GUI on login
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
