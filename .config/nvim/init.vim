@@ -15,7 +15,7 @@ set softtabstop=4
 
 call plug#begin()
 	Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion
-	Plug 'dense-analysis/ale' 			" syntax checker
+        Plug 'vim-syntastic/syntastic'                  " syntax checker
 	Plug 'romgrk/barbar.nvim' 			" tabs
 	Plug 'lambdalisue/vim-django-support' 		" django support
 	Plug 'Yggdroot/indentLine' 			" tab indent visualizer
@@ -27,9 +27,6 @@ source $XDG_CONFIG_HOME/nvim/coc.vim
 
 " BARBAR SETTINGS
 source $XDG_CONFIG_HOME/nvim/barbar.vim
-
-" ALE SETTINGS
-source $XDG_CONFIG_HOME/nvim/ale.vim
 
 """ BINDINGS
 " Move line(s) up or down
