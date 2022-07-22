@@ -12,6 +12,10 @@ set default_copy_to_clipboard_cmd="xclip -i -selection clipboard <"
 set copy_to_clipboard_delimited_tab=1
 set default_paste_from_clipboard_cmd="xclip -o -selection clipboard"
 
+# BINDINGS
+nnoremap "ZQ" ":q!<cr>"
+nnoremap "ZZ" ":wq!<cr>"
+
 ## CUSTOM COLORS
 DEFINE_COLOR "ARCHBLUE" 0 128 255
 #DEFINE_COLOR "ARCHBLUE" 0 95 120
