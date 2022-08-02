@@ -59,8 +59,8 @@ export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export SQLITE_HISTORY="$XDG_CACHE_HOME"/sqlite_history
 export WINEPREFIX="$XDG_DATA_HOME"/wine
 
-alias dosbox=dosbox -conf "$XDG_CONFIG_HOME"/dosbox/dosbox.conf
-alias xbindkeys=xbindkeys -f "$XDG_CONFIG_HOME"/xbindkeys/config
+alias dosbox="dosbox -conf $XDG_CONFIG_HOME/dosbox/dosbox.conf"
+alias xbindkeys="xbindkeys -f $XDG_CONFIG_HOME/xbindkeys/config"
 alias mbsync="mbsync -c $XDG_CONFIG_HOME/isync/mbsyncrc"
 
 # GUI on login
