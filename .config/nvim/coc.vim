@@ -5,11 +5,14 @@ let g:coc_global_extensions = [
 	\ 'coc-tsserver', 
 	\ 'coc-prettier', 
 	\ 'coc-json', 
+	\ 'coc-sh', 
 	\ 'coc-highlight', 
 	\ 
 	\ 'coc-jedi', 
 	\ 'coc-html', 
+	\ 'coc-css', 
 	\ 'coc-htmldjango', 
+	\ 'coc-vetur', 
 	\]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -21,10 +24,10 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -33,7 +36,7 @@ endfunction
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Highlight the symbol and its references when holding the cursor.
