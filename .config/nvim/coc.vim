@@ -12,7 +12,7 @@ let g:coc_global_extensions = [
 	\ 'coc-html', 
 	\ 'coc-css', 
 	\ 'coc-htmldjango', 
-	\ 'coc-vetur', 
+	\ '@yaegassy/coc-volar',
 	\]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -23,11 +23,11 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1):
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
