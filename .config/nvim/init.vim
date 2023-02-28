@@ -19,6 +19,9 @@ call plug#begin() "{{{
         Plug 'romgrk/barbar.nvim' 			" tabs
         Plug 'lambdalisue/vim-django-support' 		" django support
         Plug 'Yggdroot/indentLine' 			" tab indent visualizer
+        Plug 'posva/vim-vue',                           " vue syntax highlight
+        Plug 'mxw/vim-jsx',                             " jsx syntax highlight
+        Plug 'qpkorr/vim-renamer',                      " bulk rename files
 call plug#end() "}}}
 
 " COC SETTINGS
@@ -56,4 +59,3 @@ nnoremap <A-Left> <C-W>h
 nnoremap <A-Down> <C-W>j
 nnoremap <A-Up> <C-W>k
 nnoremap <A-Right> <C-W>l
-

@@ -1,19 +1,18 @@
 " COC CONFIG
 let g:coc_global_extensions = [
-	\ 'coc-snippets', 
-	\ 'coc-pairs', 
-	\ 'coc-tsserver', 
-	\ 'coc-prettier', 
-	\ 'coc-json', 
-	\ 'coc-sh', 
-	\ 'coc-highlight', 
-	\ 
-	\ 'coc-jedi', 
-	\ 'coc-html', 
-	\ 'coc-css', 
-	\ 'coc-htmldjango', 
-	\ '@yaegassy/coc-volar',
-	\]
+        \ 'coc-snippets', 
+        \ 'coc-pairs', 
+        \ 'coc-prettier', 
+        \ 'coc-highlight', 
+        \ 
+        \ 'coc-jedi', 
+        \ 'coc-tsserver', 
+        \ 'coc-vetur', 
+        \ 'coc-html', 
+        \ 'coc-css', 
+        \ 'coc-htmldjango', 
+        \ '@yaegassy/coc-volar',
+        \]
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
