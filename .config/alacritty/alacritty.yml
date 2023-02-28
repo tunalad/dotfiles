@@ -102,4 +102,6 @@ key_bindings:
   - { key: PageDown,  mods: None,          action: ScrollPageDown, mode: ~Alt  }
   - { key: Home,      mods: Shift,         action: ScrollToTop,    mode: ~Alt  }
   - { key: End,       mods: Shift,         action: ScrollToBottom, mode: ~Alt  }
-  - { key: N,         mods: Control,       chars:  "alacritty -t pwd &\n"         }
+
+  - { key: N,         mods: Control,       chars:  "alacritty -t pwd &\n"      }
+  - { key: D,         mods: Control,       chars:  "rox . &> /dev/null\n"  }
