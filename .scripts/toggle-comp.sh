@@ -32,9 +32,9 @@ togglecomp(){
 	compstat=$(pidof xcompmgr)
 	if [[ $compstat == "" ]]
 	then
-		notify-send "xcompmgr" "started" && startcomp 
+		dunstify -r 9993 -i ~/Pictures/xorg-logo.png "Xcompmgr" "started" && startcomp 
 	else
-		notify-send "xcompmgr" "stopped" && stopcomp 
+		dunstify -r 9993 -i ~/Pictures/xorg-logo.png "Xcompmgr" "stopped" && stopcomp 
 	fi
 }
 

@@ -8,5 +8,6 @@ else
 	megasync &
 	cadence --minimized &
 	~/.local/bin/./Buttercup-linux-x64.AppImage --no-window &
-	ferdi &
+	#ferdi &
+        Ripcord-0.4.29.AppImage &
 fi
