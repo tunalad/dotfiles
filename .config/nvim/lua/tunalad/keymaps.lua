@@ -14,3 +14,6 @@ vim.keymap.set('n', '<A-Left>',     '<C-W>h',       { noremap = true, silent = t
 vim.keymap.set('n', '<A-Down>',     '<C-W>j',       { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Up>',       '<C-W>k',       { noremap = true, silent = true })
 vim.keymap.set('n', '<A-Right>',    '<C-W>l',       { noremap = true, silent = true })
+
+-- fzf 
+vim.keymap.set('n', '<A-e>',        ':FzfLua files<CR>',{ noremap = true, silent = true })

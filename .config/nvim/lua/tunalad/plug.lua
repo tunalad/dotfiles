@@ -8,6 +8,7 @@ vim.call('plug#begin')
     Plug 'nvim-tree/nvim-tree.lua'              -- file explorer
     Plug 'akinsho/toggleterm.nvim'              -- terminal toggle
     Plug 'metalelf0/base16-black-metal-scheme'  -- trve kvlt color schemes
+    Plug 'ibhagwan/fzf-lua'                     -- fuzzy finder
     Plug('nvim-treesitter/nvim-treesitter', {   -- text highlight fix idk
         ['do'] = function()
             vim.cmd(':TSUpdate')
