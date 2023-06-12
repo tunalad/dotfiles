@@ -24,6 +24,7 @@ lsp.ensure_installed({
     'pylint',                       -- python
     'rome',                         -- js, ts, md, fuckton more
     'curlylint ',                   -- django
+    'gitlint'                       -- git
 })
 
 lsp.nvim_workspace()
