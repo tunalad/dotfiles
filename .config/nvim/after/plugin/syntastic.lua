@@ -10,6 +10,8 @@ vim.g.syntastic_check_on_open = 1
 vim.g.syntastic_check_on_wq = 0
 
 vim.g.syntastic_javascript_checkers = { 'eslint' }
+vim.g.syntastic_javascript_eslint_exec = 'eslint_d'
+vim.g.syntastic_vue_eslint_exec = 'eslint_d'
 
 vim.g.syntastic_python_pylint_args = '--rcfile=$XDG_CONFIG_HOME/pylint/pylintrc'
 vim.g.syntastic_python_checkers = { 'pylint' }

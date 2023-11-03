@@ -1,31 +1,9 @@
 -- LSP
-vim.g.mason_package_manager = 'yarn'
-vim.g.mason_package_lock_enabled = 1
-
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({buffer = bufnr})
 end)
-
-lsp.ensure_installed({
-    -- LSP
-    'typescript-language-server',   -- js, ts
-    'eslint-lsp',                   -- js, ts
-    'vue-language-server',          -- vue
-
-    'jedi_language_server',         -- python
-    'lua_ls',                       -- lua
-    'zls',                          -- zig
-    'ruby-lsp',                     -- rubb
-    'gttoolkit',                    -- godot
-
-    -- LINTER
-    'pylint',                       -- python
-    'rome',                         -- js, ts, md, fuckton more
-    'curlylint ',                   -- django
-    'gitlint'                       -- git
-})
 
 lsp.nvim_workspace()
 
