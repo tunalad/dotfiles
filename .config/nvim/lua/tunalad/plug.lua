@@ -13,6 +13,8 @@ Plug("lewis6991/gitsigns.nvim") -- git decors
 Plug("mhartington/formatter.nvim") -- formatter
 Plug("kevinhwang91/nvim-ufo") -- prettier folding
 Plug("kevinhwang91/promise-async") -- required by ufo
+Plug("norcalli/nvim-colorizer.lua") -- colors preview
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- syntax highlighting
 
 -- color schemes
 Plug("metalelf0/base16-black-metal-scheme") -- trve kvlt colors

@@ -4,13 +4,11 @@ local function prettierrc()
     return {
         exe = "prettier",
         args = {
-            "--tab-width",
-            "4",
-            "--bracket-spacing",
+            "--config",
+            "$XDG_CONFIG_HOME/prettier/prettierrc.yaml",
 
             "--stdin-filepath",
             util.escape_path(util.get_current_buffer_file_path()),
-            --vim.api.nvim_buf_get_name(0),
         },
         stdin = true,
         try_node_modules = true,
@@ -38,7 +36,7 @@ local function stylua()
     }
 end
 
-local function blue()
+local function black()
     return {
         exe = "black",
         args = { "-q", "-" },
@@ -73,14 +71,15 @@ require("formatter").setup({
     logging = false,
     filetype = {
         lua = stylua,
-        python = blue,
+        python = black,
         ruby = rubocop,
         django = djlint,
 
         javascript = prettierrc,
         typescript = prettierrc,
         vue = prettierrc,
-        jsx = prettierrc,
+        javascriptreact = prettierrc,
+        typescriptreact = prettierrc,
         markdown = prettierrc,
         html = prettierrc,
         css = prettierrc,
