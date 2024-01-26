@@ -6,11 +6,6 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 
--- p fix
-vim.keymap.set("x", "p", '"_dP', { noremap = true, silent = true })
-vim.keymap.set("n", "p", '"_dP', { noremap = true, silent = true })
-vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
-
 -- fold toggling
 vim.keymap.set("n", "<space>", "za", { noremap = true, silent = true })
 
