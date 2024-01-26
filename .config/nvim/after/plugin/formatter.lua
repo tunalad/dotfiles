@@ -67,6 +67,17 @@ local function djlint()
     }
 end
 
+local function php_cs_fixer()
+    return {
+        exe = "php-cs-fixer",
+        args = {
+            "fix",
+        },
+        stdin = false,
+        ignore_exitcode = true,
+    }
+end
+
 require("formatter").setup({
     logging = false,
     filetype = {
@@ -85,6 +96,8 @@ require("formatter").setup({
         css = prettierrc,
         json = prettierrc,
         yaml = prettierrc,
+
+        php = php_cs_fixer,
     },
 })
 

@@ -14,7 +14,9 @@ Plug("mhartington/formatter.nvim") -- formatter
 Plug("kevinhwang91/nvim-ufo") -- prettier folding
 Plug("kevinhwang91/promise-async") -- required by ufo
 Plug("norcalli/nvim-colorizer.lua") -- colors preview
-Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- syntax highlighting
+Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- (better) syntax highlighting
+Plug("windwp/nvim-ts-autotag") -- tag closing and renaming support thing
+Plug("goolord/alpha-nvim") -- greeter logo thing
 
 -- color schemes
 Plug("metalelf0/base16-black-metal-scheme") -- trve kvlt colors
@@ -38,6 +40,7 @@ Plug("hrsh7th/cmp-buffer") -- autocomplete buffer
 Plug("hrsh7th/cmp-path") -- autocomplete paths
 Plug("hrsh7th/cmp-nvim-lsp") -- autocomplete lsp
 Plug("hrsh7th/cmp-nvim-lsp-document-symbol") -- autocomplete documentSymbol
+Plug("hrsh7th/cmp-nvim-lsp-signature-help") -- shows function parameters
 Plug("L3MON4D3/LuaSnip") -- snippet engine
 Plug("saadparwaiz1/cmp_luasnip") -- connecting LuaSnip w/ cmp
 Plug("rafamadriz/friendly-snippets") -- some epic snippets
