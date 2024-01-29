@@ -17,6 +17,10 @@ vim.keymap.set("n", "<A-Right>", "<C-W>l", { noremap = true, silent = true })
 
 -- fzf
 vim.keymap.set("n", "<A-e>", ":FzfLua files<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "rf", ":FzfLua oldfiles<CR>", { noremap = true, silent = true })
+
+-- change settings
+--vim.keymap.set("n", "cs", ":e $XDG_CONFIG_HOME/nvim<CR>", { noremap = true, silent = true })
 
 -- arrow moving works like in regular text editors
 vim.api.nvim_set_keymap("n", "<Up>", "gk", { noremap = true })

@@ -6,30 +6,44 @@ local dashboard = require("alpha.themes.dashboard")
 -- Set header
 dashboard.section.header.val = {
     "       ▄ ▄                                         ",
-    "       ██▌                                         ",
     "       ██                                          ",
-    " ▄▄▄▄▄▄██▄▄▄▄▄▄            ██             ▄██▀     ",
-    " ▄     ██▀       ▄        ▄█              ███▄     ",
-    " ▐█    ██      ▄█▀      ▄█▀█            ▄█▀█▌▀██   ",
-    "  ██   ██     ███▌    ▄██  █           ██  ██  ▀█  ",
-    "   ██  ██    ██ ██   ████████▀         █▌  ██   ██ ",
-    "    ██ ██▌  ██  ▐█▌ ▐██    █▌         ▐█▀▀▀██   ██ ",
-    "     ████ ▄██    ██ ██     ██         ▐█    █   █▌ ",
-    "      ██████      ███▌      █▌        ██   ▐█  ██  ",
-    "       ▀██▀      ▄█▀█       ██▄      ▄█▌▄  ▐█▄█▀   ",
-    "        █▌                  ██▀▀▀▀▀████▀▌   ██▀    ",
-    "        ▐                                   █▌     ",
+    "       ██                                   ▄      ",
+    "  ▄▄▄▄▄██▄▄▄▄▄▄            ██            █▄██▀     ",
+    " ▄  ▀▀▀██▀▀▀▀▀   ▄▀       ██             ▄████▄    ",
+    " ▐█    ██      ▄█▌      ▄█▀█            ██ █▌ ██   ",
+    "  ██   ██     ███▌     ██  █  ▄        ██  ██  ▀█  ",
+    "   ██  ██    ██ ██    ███████▀         ██▄▄██   ██ ",
+    "    ██ ██  ▄██  ▐█▌  █▀    █▌         ▐█▀▀▀██   ██ ",
+    "     ████ ███    ██ ██     ▐█         ▐█    █   █▌ ",
+    "      ▀████▀      ███       █▌        ██   ▐█  █▀  ",
+    "       ▀██▀      ▄█▀█▄       █▄▄    ▄██▌   ▐█▄█▀   ",
+    "        █▌                  ▀▀▀▀▀▀▀▀██▀▀    ██     ",
+    "                                            █      ",
     "",
     "     [ tunalad.github.io | tunalad.indie.af ]      ",
 }
 
--- Set menu
+--
+--             ▐█
+--             ▐█                             ▄
+--         ▀█████████▀          █▀          ███
+--        █▄   ▐█      █▀     ▄█▌          ▄██▀█▄
+--         █▄  ▐█    ▄██    ▄█▀ █         ██ █▌ ▀█
+--          █▄ ▐█   ██▐█▄  ███████       ▐█   █  ▐█
+--           █▄▐█  ██  ██ ██    █        ▐█▀▀██  ▐█
+--            ███▄██    █▄█▌    █▌       ▐▌  ▐█  █▌
+--             ███▀     ▄██      █       █▌  ▐█ █▀
+--              █▌        ▀      ██████████   ██
+--                                           ▐█
+--                                            ▌
+
+-- Set men
 dashboard.section.buttons.val = {
-    dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
-    dashboard.button("f", "  > Find file", ":FzfLua files<CR>"),
-    dashboard.button("r", "  > Recent", ":FzfLua oldfiles<CR>"),
-    dashboard.button("s", "  > Settings", ":e $XDG_CONFIG_HOME/nvim<CR>"),
-    dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
+    dashboard.button(":ene", "  > New file"),
+    dashboard.button("alt + e", "  > Find file"),
+    dashboard.button("rf", "  > Recent"),
+    --dashboard.button("cs", "  > Settings"),
+    dashboard.button(":q", "  > Quit NVIM"),
 }
 
 -- Set footer
