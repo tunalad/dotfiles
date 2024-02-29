@@ -4,7 +4,6 @@ readonly MUSIC_DIR="${HOME}/Music"
 readonly SONG_DIR="$(dirname "$(mpc --format '%file%' current)")"
 
 ALBUM_ART_PATH=$(find "${MUSIC_DIR}/${SONG_DIR}" -type f -iname 'cover.*' -print -quit)
-echo "$ALBUM_ART_PATH"
 
 [[ ! -f $ALBUM_ART_PATH ]] && ALBUM_ART_PATH="$MUSIC_DIR/fallback.png"
 
