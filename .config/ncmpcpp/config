@@ -18,7 +18,7 @@ volume_color = "cyan"
 progressbar_color = "black"
 statusbar_color = "white"
 active_window_border = "cyan"
-song_columns_list_format = " (11)[cyan]{l} (17)[cyan]{a} (0)[white]{t} "
+song_columns_list_format = " (11)[cyan]{l} (17)[cyan]{a} (17)[cyan]{A} (0)[white]{t} "
 user_interface = "classic"
 default_place_to_search_in = "database"
 
