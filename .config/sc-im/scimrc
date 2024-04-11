@@ -15,6 +15,7 @@ set default_paste_from_clipboard_cmd="xclip -o -selection clipboard"
 # BINDINGS
 nnoremap "ZQ" ":q!<cr>"
 nnoremap "ZZ" ":wq!<cr>"
+nnoremap "aa" "aaflfl"
 
 ## CUSTOM COLORS
 DEFINE_COLOR "ARCHBLUE" 0 128 255
