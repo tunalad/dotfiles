@@ -1,5 +1,6 @@
 -- LSP
-local lsp = require("lsp-zero").preset("recommended")
+local lsp_zero = require("lsp-zero").preset("recommended")
+local lspconfig = require("lspconfig")
 
 --lsp.on_attach(function(client, bufnr)
 --    lsp.default_keymaps({ buffer = bufnr })
@@ -7,7 +8,11 @@ local lsp = require("lsp-zero").preset("recommended")
 
 --lsp.nvim_workspace()
 
-lsp.setup()
+lsp_zero.setup()
+
+lspconfig.clangd.setup({
+    autostart = false,
+})
 
 -- COMPLETION
 local cmp = require("cmp")

@@ -27,3 +27,6 @@ vim.opt.conceallevel = 0
 
 -- setting lmms file type
 vim.cmd([[ autocmd BufNewFile,BufRead *.mmp set filetype=xml ]])
+
+-- load project's vim settings (found in .vimsettings in the root of the file)
+vim.cmd('autocmd BufEnter * if filereadable(".vimsettings") | source .vimsettings | endif')

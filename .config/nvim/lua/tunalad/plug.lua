@@ -17,6 +17,7 @@ Plug("norcalli/nvim-colorizer.lua") -- colors preview
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- (better) syntax highlighting
 Plug("windwp/nvim-ts-autotag") -- tag closing and renaming support thing
 Plug("goolord/alpha-nvim") -- greeter logo thing
+Plug("mechatroner/rainbow_csv") -- csv colors
 
 -- color schemes
 Plug("metalelf0/base16-black-metal-scheme") -- trve kvlt colors
