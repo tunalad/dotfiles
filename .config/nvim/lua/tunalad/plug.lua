@@ -1,3 +1,4 @@
+local vim = vim
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin")
@@ -11,8 +12,6 @@ Plug("akinsho/toggleterm.nvim") -- terminal toggle
 Plug("ibhagwan/fzf-lua") -- fuzzy finder
 Plug("lewis6991/gitsigns.nvim") -- git decors
 Plug("mhartington/formatter.nvim") -- formatter
-Plug("kevinhwang91/nvim-ufo") -- prettier folding
-Plug("kevinhwang91/promise-async") -- required by ufo
 Plug("norcalli/nvim-colorizer.lua") -- colors preview
 Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" }) -- (better) syntax highlighting
 Plug("windwp/nvim-ts-autotag") -- tag closing and renaming support thing
