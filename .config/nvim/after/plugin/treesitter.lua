@@ -43,3 +43,4 @@ parser_config.quakec = {
     },
     filetype = "qc", -- if filetype does not match the parser name
 }
+

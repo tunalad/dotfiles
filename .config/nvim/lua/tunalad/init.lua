@@ -1,5 +1,10 @@
-require("tunalad.keymaps")
-require("tunalad.plug")
 require("tunalad.options")
+require("tunalad.keymaps")
+require("tunalad.plugins")
 
-vim.g.barbar_auto_setup = false -- making barbar SHUT THE FUCK UP
+-- making barbar SHUT THE FUCK UP
+vim.g.barbar_auto_setup = false
+
+-- colorscheme
+vim.g.codedark_transparent=1
+vim.cmd.colorscheme("codedark")

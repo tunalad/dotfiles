@@ -1,5 +1,3 @@
---require('alpha').setup({})
-
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
@@ -22,20 +20,6 @@ dashboard.section.header.val = {
     "",
     "     [ tunalad.github.io | tunalad.indie.af ]      ",
 }
-
---
---             ▐█
---             ▐█                             ▄
---         ▀█████████▀          █▀          ███
---        █▄   ▐█      █▀     ▄█▌          ▄██▀█▄
---         █▄  ▐█    ▄██    ▄█▀ █         ██ █▌ ▀█
---          █▄ ▐█   ██▐█▄  ███████       ▐█   █  ▐█
---           █▄▐█  ██  ██ ██    █        ▐█▀▀██  ▐█
---            ███▄██    █▄█▌    █▌       ▐▌  ▐█  █▌
---             ███▀     ▄██      █       █▌  ▐█ █▀
---              █▌        ▀      ██████████   ██
---                                           ▐█
---                                            ▌
 
 -- Set men
 dashboard.section.buttons.val = {
@@ -69,3 +53,4 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
+
