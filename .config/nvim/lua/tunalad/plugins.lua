@@ -1,10 +1,11 @@
 local lazy = require("lazy")
 
 local plugins = {
-    -- the important minimum
+    -----------------------
+    --  IMPORTANT MINIES --
+    -----------------------
     "ibhagwan/fzf-lua", -- fuzzy finder
     "akinsho/toggleterm.nvim", -- terminal toggle
-
     {
         "Yggdroot/indentLine", -- line indent indicator
         config = function()
@@ -18,7 +19,9 @@ local plugins = {
         end,
     },
 
-    -- ide vibes stuff
+    -----------------------
+    --  IDE VIBES STUFF  --
+    -----------------------
     "dense-analysis/ale", -- linter
     "romgrk/barbar.nvim", -- tabs
     "nvim-tree/nvim-tree.lua", -- file explorer
@@ -36,10 +39,11 @@ local plugins = {
             require("nvim-ts-autotag").setup({})
         end,
     },
-
     "nvim-tree/nvim-web-devicons", -- dev icons for file explorer & barbar
 
-    -- other minor stuff
+    -----------------------
+    --       MISCS       --
+    -----------------------
     "mechatroner/rainbow_csv", -- csv colors
     "goolord/alpha-nvim", -- greeter logo thing
     {
@@ -49,11 +53,15 @@ local plugins = {
         end,
     },
 
-    -- color schemes
+    -----------------------
+    --       COLORS      --
+    -----------------------
     "metalelf0/base16-black-metal-scheme", -- trve kvlt colors
     "tomasiser/vim-code-dark", -- vscode dark mode (colors are pretty nice)
 
-    -- LSP-ZERO
+    -----------------------
+    --      LSP-ZERO     --
+    -----------------------
     {
         "VonHeikemen/lsp-zero.nvim", -- bundles stuff below
         branch = "v3.x",

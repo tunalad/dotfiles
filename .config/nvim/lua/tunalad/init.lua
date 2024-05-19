@@ -1,5 +1,6 @@
 require("tunalad.options")
 require("tunalad.keymaps")
+require("tunalad.folding")
 require("tunalad.plugins")
 
 -- making barbar SHUT THE FUCK UP
