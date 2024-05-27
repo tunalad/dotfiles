@@ -11,6 +11,14 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
+-- C specific settings
+--vim.cmd([[
+--    augroup CIndentation
+--        autocmd!
+--        autocmd BufRead,BufNewFile *.c,*.h,*.cpp setlocal shiftwidth=8 softtabstop=8 expandtab
+--    augroup END
+--]])
+
 local marker_languages = {
     -- languages to use `foldmethod='marker'`
     --"markdown",

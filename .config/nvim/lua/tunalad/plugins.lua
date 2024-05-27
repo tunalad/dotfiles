@@ -8,9 +8,7 @@ local plugins = {
     "akinsho/toggleterm.nvim", -- terminal toggle
     {
         "Yggdroot/indentLine", -- line indent indicator
-        config = function()
-            vim.g.indentLine_setConceal = 0
-        end,
+        event = { "BufRead", "BufNewFile" },
     },
     {
         "windwp/nvim-autopairs", -- spawns pairs of brackets, quotes, etc
@@ -66,6 +64,7 @@ local plugins = {
         "VonHeikemen/lsp-zero.nvim", -- bundles stuff below
         branch = "v3.x",
     },
+
     -- LSP SUPPORT
     "neovim/nvim-lspconfig", -- lsp
     {
@@ -74,18 +73,26 @@ local plugins = {
             require("mason").setup({})
         end,
     },
-    "williamboman/mason-lspconfig.nvim", --connecting lspconfig w/ mason
+    "williamboman/mason-lspconfig.nvim", -- connecting lspconfig w/ mason
 
     -- AUTOCOMPLETE
-    "hrsh7th/nvim-cmp", -- autocomplete core
-    "hrsh7th/cmp-buffer", -- autocomplete buffer
-    "hrsh7th/cmp-path", -- autocomplete paths
-    "hrsh7th/cmp-nvim-lsp", -- autocomplete lsp
-    "hrsh7th/cmp-nvim-lsp-document-symbol", -- autocomplete documentSymbol
-    "hrsh7th/cmp-nvim-lsp-signature-help", -- shows function parameters
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- connecting LuaSnip w/ cmp
-    "rafamadriz/friendly-snippets", -- some epic snippets
+    {
+        "hrsh7th/nvim-cmp", -- autocomplete core
+        dependencies = {
+            "hrsh7th/cmp-buffer", -- autocomplete buffer
+            "hrsh7th/cmp-path", -- autocomplete paths
+            "hrsh7th/cmp-nvim-lsp", -- autocomplete lsp
+            "hrsh7th/cmp-nvim-lsp-document-symbol", -- autocomplete documentSymbol
+            "hrsh7th/cmp-nvim-lsp-signature-help", -- shows function parameters
+        },
+    },
+    {
+        "L3MON4D3/LuaSnip", -- snippet engine
+        dependencies = {
+            "rafamadriz/friendly-snippets", -- some epic snippets
+            "saadparwaiz1/cmp_luasnip", -- connecting LuaSnip w/ cmp
+        },
+    },
 }
 
 local opts = {}

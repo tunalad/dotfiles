@@ -1,104 +1,82 @@
 local util = require("formatter.util")
 
-local function prettierrc()
-    return {
-        exe = "prettier",
-        args = {
-            "--config",
-            "$XDG_CONFIG_HOME/prettier/prettierrc.yaml",
+local function black()
+	return {
+		exe = "black",
+		args = { "-q", "-" },
+		stdin = true,
+	}
+end
 
-            "--stdin-filepath",
-            util.escape_path(util.get_current_buffer_file_path()),
-        },
-        stdin = true,
-        try_node_modules = true,
-    }
+local function prettierrc()
+	return {
+		exe = "prettier",
+		args = {
+			"--config",
+			"$XDG_CONFIG_HOME/prettier/prettierrc.yaml",
+
+			"--stdin-filepath",
+			util.escape_path(util.get_current_buffer_file_path()),
+		},
+		stdin = true,
+		try_node_modules = true,
+	}
 end
 
 local function stylua()
-    return {
-        exe = "stylua",
-        args = {
-            "--indent-width",
-            "4",
-            "--indent-type",
-            "Spaces",
+	if util.get_current_buffer_file_name() == "special.lua" then
+		return nil
+	end
 
-            --"--skip-modified-check",
-            "--search-parent-directories",
-            "--stdin-filepath",
-            util.escape_path(util.get_current_buffer_file_path()),
-            "--",
-            "-",
-        },
-        stdin = true,
-        no_save_after_format = true,
-    }
-end
+	return {
+		exe = "stylua",
+		args = {
+			"--indent-width",
+			"4",
+			"--indent-type",
+			"Spaces",
 
-local function black()
-    return {
-        exe = "black",
-        args = { "-q", "-" },
-        stdin = true,
-    }
-end
-
-local function rubocop()
-    return {
-        exe = "rubocop",
-        args = {
-            "--fix-layout",
-            "--stdin",
-            util.escape_path(util.get_current_buffer_file_name()),
-            "--format",
-            "files",
-            "--stderr",
-        },
-        stdin = true,
-    }
-end
-
-local function djlint()
-    return {
-        exe = "djlint",
-        args = { "--reformat", "-" },
-        stdin = true,
-    }
-end
-
-local function php_cs_fixer()
-    return {
-        exe = "php-cs-fixer",
-        args = {
-            "fix",
-        },
-        stdin = false,
-        ignore_exitcode = true,
-    }
+			--"--skip-modified-check",
+			"--search-parent-directories",
+			"--stdin-filepath",
+			util.escape_path(util.get_current_buffer_file_path()),
+			"--",
+			"-",
+		},
+		stdin = true,
+		no_save_after_format = true,
+	}
 end
 
 require("formatter").setup({
-    logging = false,
-    filetype = {
-        lua = stylua,
-        python = black,
-        ruby = rubocop,
-        django = djlint,
+	logging = true,
+	log_level = vim.log.levels.WARN,
 
-        javascript = prettierrc,
-        typescript = prettierrc,
-        vue = prettierrc,
-        javascriptreact = prettierrc,
-        typescriptreact = prettierrc,
-        markdown = prettierrc,
-        html = prettierrc,
-        css = prettierrc,
-        json = prettierrc,
-        yaml = prettierrc,
+	filetype = {
+		lua = {
+			require("formatter.filetypes.lua").stylua,
+			stylua,
+		},
 
-        php = php_cs_fixer,
-    },
+		python = black,
+		go = require("formatter.filetypes.go").gofumpt,
+
+		javascript = prettierrc,
+		typescript = prettierrc,
+		vue = prettierrc,
+		javascriptreact = prettierrc,
+		typescriptreact = prettierrc,
+		markdown = prettierrc,
+		html = prettierrc,
+		css = prettierrc,
+		json = prettierrc,
+		yaml = prettierrc,
+
+		["*"] = {
+			require("formatter.filetypes.any").remove_trailing_whitespace,
+			stdin = true,
+		},
+	},
 })
 
 -- format on save
@@ -109,4 +87,3 @@ vim.cmd([[
         autocmd BufWritePost * FormatWrite
     augroup END
 ]])
-

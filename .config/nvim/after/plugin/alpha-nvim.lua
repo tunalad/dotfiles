@@ -18,7 +18,7 @@ dashboard.section.header.val = {
     "        █▌                  ▀▀▀▀▀▀▀▀██▀▀    ██     ",
     "                                            █      ",
     "",
-    "     [ tunalad.github.io | tunalad.indie.af ]      ",
+    "        [ tunalad.github.io | tunalad.xyz ]         ",
 }
 
 -- Set men
@@ -53,4 +53,3 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
     autocmd FileType alpha setlocal nofoldenable
 ]])
-
