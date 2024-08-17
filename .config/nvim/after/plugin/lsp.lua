@@ -10,9 +10,13 @@ local lspconfig = require("lspconfig")
 
 lsp_zero.setup()
 
-lspconfig.clangd.setup({
-    autostart = false,
-})
+lspconfig.clangd.setup({ autostart = false })
+
+lspconfig.jedi_language_server.setup({ autostart = true })
+lspconfig.lua_ls.setup({ autostart = true })
+lspconfig.gopls.setup({ autostart = true })
+lspconfig.vuels.setup({ autostart = true })
+lspconfig.tsserver.setup({ autostart = true })
 
 -- COMPLETION
 local cmp = require("cmp")
