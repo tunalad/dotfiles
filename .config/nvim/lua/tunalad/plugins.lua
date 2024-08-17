@@ -26,15 +26,21 @@ local plugins = {
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
     {
+        "folke/trouble.nvim", -- diagnostics
+        opts = {},
+    },
+    {
         "nvim-treesitter/nvim-treesitter", -- (better) syntax highlighting
-        config = function()
-            vim.cmd(":TSUpdate")
-        end,
+        build = ":TSUpdate",
     },
     {
         "windwp/nvim-ts-autotag", -- tag closing and renaming support thing
         config = function()
-            require("nvim-ts-autotag").setup({})
+            require("nvim-ts-autotag").setup({
+                opts = {
+                    enable_close_on_slash = true,
+                },
+            })
         end,
     },
     "nvim-tree/nvim-web-devicons", -- dev icons for file explorer & barbar
