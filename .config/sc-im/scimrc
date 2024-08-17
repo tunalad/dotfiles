@@ -17,6 +17,13 @@ nnoremap "ZQ" ":q!<cr>"
 nnoremap "ZZ" ":wq!<cr>"
 nnoremap "aa" "aaflfl"
 
+# move row up/down
+nnoremap "<C-k>" "drkkp"
+nnoremap "<C-j>" "drp"
+# move column right/left
+nnoremap "<C-l>" "dclpaa"
+nnoremap "<C-h>" "dchpaa"
+
 ## CUSTOM COLORS
 DEFINE_COLOR "ARCHBLUE" 0 128 255
 #DEFINE_COLOR "ARCHBLUE" 0 95 120
@@ -31,9 +38,9 @@ color "type=HEADINGS_ODD bold=0 fg=BLACK bg=WHITE"
 color "type=CELL_SELECTION fg=ARCHBLUE bg=BOLDWHITE bold=1"
 color "type=CELL_SELECTION_SC fg=BOLDWHITE bg=ARCHBLUE bold=1"
 
-color "type=STRG fg=ARCHBLUE bg=DEFAULT_COLOR" 
-#color "type=NUMB fg=CYAN bg=DEFAULT_COLOR" 
-#color "type=DATEF fg=ARCHBLUE bg=DEFAULT_COLOR" 
+color "type=STRG fg=ARCHBLUE bg=DEFAULT_COLOR"
+#color "type=NUMB fg=CYAN bg=DEFAULT_COLOR"
+#color "type=DATEF fg=ARCHBLUE bg=DEFAULT_COLOR"
 
 # VOIDLINUX theme
 #color "type=CELL_SELECTION fg=VOIDGREEN bg=BOLDWHITE bold=1"

@@ -3,17 +3,17 @@ mpd_music_dir = "~/Music"
 lyrics_directory  = "~/Music/.lyrics"
 ncmpcpp_directory  = "~/.config/ncmpcpp"
 mpd_host = "localhost"
-mpd_port = "6600"  
-mpd_connection_timeout = "0"  
-mpd_crossfade_time = "0"  
+mpd_port = "6600"
+mpd_connection_timeout = "0"
+mpd_crossfade_time = "0"
 
 # Playlist
-playlist_disable_highlight_delay = "0"  
-playlist_display_mode = "columns"  
-browser_display_mode = "columns"  
-colors_enabled = "yes"  
-main_window_color = "cyan"  
-header_window_color = "cyan"  
+playlist_disable_highlight_delay = "0"
+playlist_display_mode = "columns"
+browser_display_mode = "columns"
+colors_enabled = "yes"
+main_window_color = "cyan"
+header_window_color = "cyan"
 volume_color = "cyan"
 progressbar_color = "black"
 statusbar_color = "white"
@@ -25,9 +25,9 @@ default_place_to_search_in = "database"
 # Visualizer
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_type = "spectrum" (spectrum/wave)
+visualizer_type = "wave_filled" (spectrum/wave/ellipse/wave_filled)
 visualizer_in_stereo = "yes"
-visualizer_look = "█┇" # other strange characters: ▋░ ●▒ ▋▋
+visualizer_look = "█┇" # other strange characters: ▋, ░, ●, ▒, ▋, ▋
 visualizer_color = "cyan"
 
 # Navigation

@@ -1,10 +1,15 @@
-numlockx &
-xbindkeys -f .config/xbindkeys/config &
-dunst &
-mpd &
+xrandr --output LVDS-1 --set "scaling mode" "Full"
 
-xwallpaper --zoom /usr/share/backgrounds/arch-linux-2d/Arch1.jpg &
-.scripts/dwm-statusbar.sh &
+numlockx &
+xbindkeys -f $HOME/.config/xbindkeys/config &
+dunst &
+
+mpd &
+mpdscribble --conf $HOME/.config/mpdscribble/mpdscribble.conf &
+
+#xwallpaper --zoom /usr/share/backgrounds/arch-linux-2d/Arch1.jpg &
+xwallpaper --zoom $HOME/Pictures/paintings/William_Richards-Surf_On_Rocks_1890s.jpg &
+$HOME/.local/scripts/dwm-statusbar.sh &
 xcompmgr &
 
 nm-applet &
