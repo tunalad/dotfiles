@@ -30,6 +30,8 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias cht.sh="curl https://cht.sh/\$1"
 alias zathura="zathura --fork"
 alias nnn="nnn -e"
+alias pfetch="fastfetch -c ~/.config/fastfetch/pfetch.jsonc"
+alias neofetch="fastfetch -c ~/.config/fastfetch/neofetch.jsonc"
 
 alias ramfetch="dmidecode -t 17"
 alias resrs="xrandr -s 1366x768"
