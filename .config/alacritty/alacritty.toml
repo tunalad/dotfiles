@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [colors]
@@ -138,12 +139,10 @@ key = "End"
 mode = "~Alt"
 mods = "Shift"
 
-#[[keyboard.bindings]]
-#chars = """
-#alacritty -t pwd &
-#"""
-#key = "N"
-#mods = "Control"
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control"
 
 [[keyboard.bindings]]
 chars = """
