@@ -40,10 +40,10 @@
 "$FILE_MANAGER"
     m:0x15 + c:41
     Control+Shift+Mod2 + f
-"firefox"
+"$BROWSER"
     m:0x15 + c:56
     Control+Shift+Mod2 + b
-"firefox"
+"$BROWSER"
     m:0x10 + c:180
     Mod2 + XF86HomePage
 "guitarix"
