@@ -16,6 +16,8 @@ set default_paste_from_clipboard_cmd="xclip -o -selection clipboard"
 nnoremap "ZQ" ":q!<cr>"
 nnoremap "ZZ" ":wq!<cr>"
 nnoremap "aa" "aaflfl"
+nnoremap "ar" "orj"
+nnoremap "ac" "ocl"
 
 # move row up/down
 nnoremap "<C-k>" "drkkp"
