@@ -1,0 +1,23 @@
+[colors]
+    draw_bold_text_with_bright_colors = true
+    [colors.primary]
+        background = "#00090E"
+        foreground = "#D8DEE9"
+    [colors.normal]
+        black =     "#00090E"
+        blue =      "#0000AA"
+        cyan =      "#00AAAA"
+        green =     "#00AA00"
+        magenta =   "#AA00AA"
+        red =       "#AA0000"
+        white =     "#AAAAAA"
+        yellow =    "#AA5500"
+    [colors.bright]
+        black =     "#555555"
+        blue =      "#5555FF"
+        cyan =      "#55FFFF"
+        green =     "#55FF55"
+        magenta =   "#FF55FF"
+        red =       "#FF5555"
+        white =     "#FFFFFF"
+        yellow =    "#FFFF55"

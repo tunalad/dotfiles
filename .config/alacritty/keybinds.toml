@@ -1,0 +1,20 @@
+[mouse]
+    bindings = [
+        { mouse = "Middle", action = "PasteSelection" }
+    ]
+
+[keyboard]
+    bindings = [
+        { key = "C",        mods = "Control|Shift",     action = "Copy" },
+        { key = "V",        mods = "Control|Shift",     action = "Paste" },
+        { key = "N",        mods = "Control",           action = "CreateNewWindow" },
+        { key = "L",        mods = "Control",           chars  = "\f" },
+        { key = "D",        mods = "Control",           chars  = "rox . &> /dev/null\n" },
+
+        { key = "PageUp",   mods = "None",              action = "ScrollPageUp",    mode = "~Alt" },
+        { key = "PageDown", mods = "None",              action = "ScrollPageDown",  mode = "~Alt" },
+        { key = "Home",     mods = "Shift",             action = "ScrollToTop",     mode = "~Alt" },
+        { key = "End",      mods = "Shift",             action = "ScrollToBottom",  mode = "~Alt" },
+
+        { key = "F11",      mods = "None",              action = "ToggleFullscreen" },
+    ]

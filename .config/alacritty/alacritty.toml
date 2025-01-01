@@ -1,179 +1,30 @@
 [general]
-live_config_reload = true
-
-[colors]
-draw_bold_text_with_bright_colors = true
-
-[colors.bright]
-black = "#555555"
-blue = "#5555FF"
-cyan = "#55FFFF"
-green = "#55FF55"
-magenta = "#FF55FF"
-red = "#FF5555"
-white = "#FFFFFF"
-yellow = "#FFFF55"
-
-[colors.normal]
-black = "#00090E"
-blue = "#0000AA"
-cyan = "#00AAAA"
-green = "#00AA00"
-magenta = "#AA00AA"
-red = "#AA0000"
-white = "#AAAAAA"
-yellow = "#AA5500"
-
-[colors.primary]
-background = "#00090E"
-foreground = "#D8DEE9"
-
-[font]
-size = 9.0
-
-[font.bold]
-family = "Source Code Pro"
-style = "Bold"
-
-[font.bold_italic]
-family = "Source Code Pro"
-style = "Bold Italic"
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[font.italic]
-family = "Source Code Pro"
-style = "Italic"
-
-[font.normal]
-family = "Source Code Pro"
-style = "Medium"
-
-[font.offset]
-x = 0
-y = 1
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "V"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "C"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "PasteSelection"
-key = "Insert"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "ResetFontSize"
-key = "Key0"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Equals"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-action = "IncreaseFontSize"
-key = "Plus"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-action = "DecreaseFontSize"
-key = "Minus"
-mods = "Control|Alt"
-
-[[keyboard.bindings]]
-action = "ToggleFullscreen"
-key = "F11"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "Paste"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "Copy"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ClearLogNotice"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\f"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "PageUp"
-mode = "~Alt"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ScrollPageDown"
-key = "PageDown"
-mode = "~Alt"
-mods = "None"
-
-[[keyboard.bindings]]
-action = "ScrollToTop"
-key = "Home"
-mode = "~Alt"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "ScrollToBottom"
-key = "End"
-mode = "~Alt"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "CreateNewWindow"
-key = "N"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = """
-rox . &> /dev/null
-"""
-key = "D"
-mods = "Control"
-
-[[mouse.bindings]]
-action = "PasteSelection"
-mouse = "Middle"
+    live_config_reload = true
+    import = [
+        "keybinds.toml",
+        "colors.toml",
+    ]
 
 [scrolling]
-history = 10000
-multiplier = 10
+    history = 10000
+    multiplier = 10
 
 [selection]
-save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+    save_to_clipboard = true
+    semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-opacity = 0.9
+    opacity = 0.9
+    padding =    { x = 4,    y = 4 }
+    position =   { x = 275,  y = 150 }
+    dimensions = { columns = 100, lines = 25 }
 
-[window.dimensions]
-columns = 100
-lines = 25
+[font]
+    size = 9.0
+    offset =        { x = 0, y = 1 }
+    glyph_offset =  { x = 0, y = 0 }
 
-[window.padding]
-x = 4
-y = 4
-
-[window.position]
-x = 275
-y = 150
+    normal =        { family = "Source Code Pro",   style = "Medium" }
+    bold =          { family = "Source Code Pro",   style = "Bold" }
+    italic =        { family = "Source Code Pro",   style = "Italic" }
+    bold_italic =   { family = "Source Code Pro",   style = "Bold Italic" }
