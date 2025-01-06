@@ -7,7 +7,7 @@
     bindings = [
         { key = "C",        mods = "Control|Shift",     action = "Copy" },
         { key = "V",        mods = "Control|Shift",     action = "Paste" },
-        { key = "N",        mods = "Control",           action = "CreateNewWindow" },
+        { key = "N",        mods = "Control|Shift",     action = "CreateNewWindow" },
         { key = "L",        mods = "Control",           chars  = "\f" },
         { key = "D",        mods = "Control",           chars  = "rox . &> /dev/null\n" },
 
