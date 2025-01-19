@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case "$(file -Lb --mime-type -- "$1")" in
+image/*)
+    chafa -s "$2x$3" --animate off --polite on "$1"
+    exit 1
+    ;;
+audio/*)
+    ffprobe "$1" 2>&1 | awk '/Input/,0'
+    exit 1
+    ;;
+text/csv)
+    column -s, -t <midi-drums.csv | less -#2 -N -S
+    ;;
+*)
+    cat "$1"
+    ;;
+esac

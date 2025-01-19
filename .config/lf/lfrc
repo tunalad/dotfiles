@@ -1,0 +1,22 @@
+set shell sh
+set shellopts '-eu'
+set icons true
+set sixel true
+set scrolloff 10
+set previewer ~/.config/lf/scripts/previewer
+
+#cmd trash %trash-put $fx
+#cmd trash-empty %trash-empty
+cmd trash-restore ${{ trash-restore }}
+cmd help ${{ man lf }}
+
+# trash items
+cmd trash %{{
+    printf "Trash '%s'? [y/n] " "$f"
+    read -r ans
+    if [ "$ans" = "y" ]; then
+        trash-put "$f"
+    else
+        echo "aborting"
+    fi
+}}
