@@ -9,6 +9,7 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.conceallevel = 0
 
 -- python tabbing
 vim.cmd("autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4")
@@ -23,10 +24,16 @@ vim.g.loaded_perl_provider = 0
 
 -- markdown highlighting code
 vim.g.markdown_fenced_languages = { "html", "py=python", "lua", "vim", "ts=typescript", "js=javascript", "json" }
-vim.opt.conceallevel = 0
 
 -- setting lmms file type
 vim.cmd([[ autocmd BufNewFile,BufRead *.mmp set filetype=xml ]])
 
 -- load project's vim settings (found in .vimsettings in the root of the file)
 vim.cmd('autocmd BufEnter * if filereadable(".vimsettings") | source .vimsettings | endif')
+
+-- filetypes
+vim.filetype.add({
+    extension = {
+        m3u = "hlsplaylist",
+    },
+})

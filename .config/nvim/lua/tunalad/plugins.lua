@@ -9,6 +9,9 @@ local plugins = {
     {
         "Yggdroot/indentLine", -- line indent indicator
         event = { "BufRead", "BufNewFile" },
+        config = function()
+            vim.g.indentLine_setConceal = 0
+        end,
     },
     {
         "windwp/nvim-autopairs", -- spawns pairs of brackets, quotes, etc
@@ -25,10 +28,7 @@ local plugins = {
     "nvim-tree/nvim-tree.lua", -- file explorer
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
-    {
-        "folke/trouble.nvim", -- diagnostics
-        opts = {},
-    },
+    "folke/trouble.nvim", -- diagnostics
     {
         "nvim-treesitter/nvim-treesitter", -- (better) syntax highlighting
         build = ":TSUpdate",
@@ -44,6 +44,7 @@ local plugins = {
         end,
     },
     "nvim-tree/nvim-web-devicons", -- dev icons for file explorer & barbar
+    "stevearc/aerial.nvim", -- code outline/map
 
     -----------------------
     --       MISCS       --
@@ -56,6 +57,7 @@ local plugins = {
             require("colorizer").setup({})
         end,
     },
+    "NMAC427/guess-indent.nvim", -- detect indent size
 
     -----------------------
     --       COLORS      --

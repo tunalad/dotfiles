@@ -13,6 +13,9 @@ vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
 -- fold toggling
 vim.keymap.set("n", "<space>", "za", { noremap = true, silent = true })
 
+-- diagnostics toggling
+vim.keymap.set("n", "<A-d>", ":Trouble diagnostics toggle<CR>", { noremap = true, silent = true })
+
 -- move between splits
 vim.keymap.set("n", "<A-Left>", "<C-W>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-Down>", "<C-W>j", { noremap = true, silent = true })

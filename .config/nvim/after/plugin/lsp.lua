@@ -16,7 +16,7 @@ lspconfig.jedi_language_server.setup({ autostart = true })
 lspconfig.lua_ls.setup({ autostart = true })
 lspconfig.gopls.setup({ autostart = true })
 lspconfig.vuels.setup({ autostart = true })
-lspconfig.tsserver.setup({ autostart = true })
+lspconfig.ts_ls.setup({ autostart = true })
 
 -- COMPLETION
 local cmp = require("cmp")

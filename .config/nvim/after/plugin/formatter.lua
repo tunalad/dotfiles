@@ -91,6 +91,8 @@ require("formatter").setup({
         css = prettierrc,
         json = prettierrc,
         yaml = prettierrc,
+        c = require("formatter.filetypes.c"),
+        cpp = require("formatter.filetypes.c"),
 
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,
