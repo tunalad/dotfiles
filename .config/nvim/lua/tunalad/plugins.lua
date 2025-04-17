@@ -28,7 +28,10 @@ local plugins = {
     "nvim-tree/nvim-tree.lua", -- file explorer
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
-    "folke/trouble.nvim", -- diagnostics
+    {
+        "folke/trouble.nvim", -- diagnostics
+        opts = {},
+    },
     {
         "nvim-treesitter/nvim-treesitter", -- (better) syntax highlighting
         build = ":TSUpdate",
