@@ -2,7 +2,7 @@ xrandr --output LVDS-1 --set "scaling mode" "Full"
 
 numlockx &
 xbindkeys -f $HOME/.config/xbindkeys/config &
-dunst &
+dunst -conf $HOME/.config/dunst/dunstrc &
 
 mpd &
 mpdscribble --conf $HOME/.config/mpdscribble/mpdscribble.conf &
@@ -15,6 +15,11 @@ xcompmgr &
 nm-applet &
 blueman-applet &
 
-xset -dpms
-xset s noblank
-xset s off
+$HOME/.local/scripts/battery-brighness.sh &
+
+# turning off the monitor when not using it
+xset +dpms
+xset s blank
+xset s on
+
+systemctl --user import-environment DISPLAY XAUTHORITY
