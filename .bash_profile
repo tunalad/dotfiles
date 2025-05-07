@@ -32,8 +32,8 @@ export XKB_DEFAULT_VARIANT="latin,,"
 #export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle"
 
 # default apps
-xdg-settings set default-web-browser firefox.desktop
-export BROWSER=firefox
+#xdg-settings set default-web-browser firefox.desktop
+export BROWSER=zen-generic.AppImage
 export EDITOR=nvim
 export FILE_MANAGER="pcmanfm"
 export TERMINAL=alacritty
@@ -41,10 +41,13 @@ export TERMINAL=alacritty
 # other setup exports
 #export vblank_mode=0
 export SUDO_PROMPT=$'\a'"[sudo] password for %p: "
-export GTK_USE_PORTAL=1
+#export GTK_USE_PORTAL=1
 #export XDG_CURRENT_DESKTOP=GTK
 export DOOMWADDIR="$XDG_CONFIG_HOME/zandronum"
 export CLIPBOARD_NOAUDIO=1
+
+export HISTSIZE=2000
+export HISTFILESIZE=2000
 
 # ~/ junk cleaning
 export ALSA_CONFIG_PATH="$HOME/.config/alsa/asoundrc"
@@ -70,7 +73,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _JAVA_AWT_WM_NONREPARENTING=1
 export LESSHISTFILE=-
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
-export ANDROID_HOME="$XDG_DATA_HOME/android"
+export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export SQLITE_HISTORY="$XDG_CACHE_HOME/sqlite_history"
@@ -83,6 +86,8 @@ export MINETEST_USER_PATH="$XDG_DATA_HOME"/minetest
 export PKG_CACHE_PATH="$XDG_CACHE_HOME"/pkg-cache
 export NVM_DIR="$HOME/.local/share/nvm"
 export LYNX_CFG="$XDG_CONFIG_HOME"/lynx.cfg
+export W3M_DIR="$XDG_STATE_HOME/w3m"
+export MIX_XDG="true"
 
 # GUI on login
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then

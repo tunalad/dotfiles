@@ -32,6 +32,7 @@ alias zathura="zathura --fork"
 alias nnn="nnn -e"
 alias pfetch="fastfetch -c ~/.config/fastfetch/pfetch.jsonc"
 alias neofetch="fastfetch -c ~/.config/fastfetch/neofetch.jsonc"
+alias nsxiv="nsxiv-rifle"
 
 alias ramfetch="dmidecode -t 17"
 alias resrs="xrandr -s 1366x768"
@@ -71,7 +72,7 @@ curl-img() {
 # C O M P L E T I O N #
 # = = = = = = = = = = #
 source /usr/share/bash-completion/completions/git
-source /usr/share/bash-completion/completions/eza
+#source /usr/share/bash-completion/completions/eza
 source /usr/share/bash-completion/completions/yt-dlp
 complete -cf doas
 #source ~/.local/share/blesh/ble.sh
@@ -82,3 +83,9 @@ bind "set colored-completion-prefix on"
 bind "set colored-stats on"
 
 nsp -r
+
+#export MCFLY_KEY_SCHEME=vim
+#export MCFLY_INTERFACE_VIEW=BOTTOM
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_RESULTS_SORT=LAST_RUN
+eval "$(mcfly init bash)"

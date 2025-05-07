@@ -8,9 +8,9 @@ set numeric_decimal=0
 set overlap
 set xlsx_readformulas
 
-set default_copy_to_clipboard_cmd="xclip -i -selection clipboard <"
+set default_copy_to_clipboard_cmd="cb copy"
 set copy_to_clipboard_delimited_tab=1
-set default_paste_from_clipboard_cmd="xclip -o -selection clipboard"
+set default_paste_from_clipboard_cmd="cb paste"
 
 # BINDINGS
 nnoremap "ZQ" ":q!<cr>"

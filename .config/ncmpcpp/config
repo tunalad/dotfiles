@@ -25,7 +25,7 @@ default_place_to_search_in = "database"
 # Visualizer
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-visualizer_type = "wave_filled" (spectrum/wave/ellipse/wave_filled)
+visualizer_type = "wave_filled" # (spectrum/wave/ellipse/wave_filled)
 visualizer_in_stereo = "yes"
 visualizer_look = "█┇" # other strange characters: ▋, ░, ●, ▒, ▋, ▋
 visualizer_color = "cyan"
@@ -70,7 +70,7 @@ autocenter_mode = "yes"
 centered_cursor = "yes"
 
 # Misc
-enable_window_title = "no"
+enable_window_title = "yes"
 startup_screen = playlist
 startup_slave_screen = "help"
 startup_slave_screen_focus = no
@@ -81,6 +81,7 @@ follow_now_playing_lyrics = "yes"
 ignore_leading_the = "yes"
 empty_tag_marker = ""
 external_editor = "nvim"
-lyrics_fetchers = azlyrics, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
+use_console_editor = "yes"
+lyrics_fetchers = genius, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 execute_on_song_change= "~/.config/ncmpcpp/scripts/song_notify.sh"
 #execute_on_song_change= notify-send "Now Playing" "$(mpc --format '%title% - %artist%' current)"
