@@ -5,18 +5,33 @@ set sixel true
 set scrolloff 10
 set previewer ~/.config/lf/scripts/previewer
 
+map . set hidden!
+
 #cmd trash %trash-put $fx
 #cmd trash-empty %trash-empty
 cmd trash-restore ${{ trash-restore }}
 cmd help ${{ man lf }}
 
-# trash items
-cmd trash %{{
-    printf "Trash '%s'? [y/n] " "$f"
-    read -r ans
-    if [ "$ans" = "y" ]; then
-        trash-put "$f"
+cmd trash ${{
+    set -f
+
+    count=$(echo "$fx" | tr ';' '\n' | wc -l)
+
+    if [ "$count" -eq 1 ]; then
+        printf "Trash 1 file? [y/N] "
     else
-        echo "aborting"
+        printf "Trash $count selected files? [y/N] "
+    fi
+
+    read -r ans
+
+    if [ "$ans" = "y" ] || [ "$ans" = "Y" ]; then
+        echo "$fx" | tr ';' '\n' | while read -r file; do
+            if [ -n "$file" ]; then
+                trash-put "$file"
+            fi
+        done
     fi
 }}
+
+map <delete> trash
