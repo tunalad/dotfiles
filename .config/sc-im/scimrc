@@ -19,12 +19,19 @@ nnoremap "aa" "aaflfl"
 nnoremap "ar" "orj"
 nnoremap "ac" "ocl"
 
+## move row up/down
+#nnoremap "<C-k>" "drkt"
+#nnoremap "<C-j>" "drp"
+## move column right/left
+#nnoremap "<C-l>" "dclpaa"
+#nnoremap "<C-h>" "dchpaa"
+
 # move row up/down
-nnoremap "<C-k>" "drkkp"
-nnoremap "<C-j>" "drp"
+nnoremap "K" "drkt"
+nnoremap "J" "drp"
 # move column right/left
-nnoremap "<C-l>" "dclpaa"
-nnoremap "<C-h>" "dchpaa"
+nnoremap "L" "dclpaa"
+nnoremap "H" "dchpaa"
 
 ## CUSTOM COLORS
 DEFINE_COLOR "ARCHBLUE" 0 128 255
@@ -44,6 +51,7 @@ color "type=STRG fg=ARCHBLUE bg=DEFAULT_COLOR"
 #color "type=NUMB fg=CYAN bg=DEFAULT_COLOR"
 #color "type=DATEF fg=ARCHBLUE bg=DEFAULT_COLOR"
 
-# VOIDLINUX theme
+## VOIDLINUX theme
 #color "type=CELL_SELECTION fg=VOIDGREEN bg=BOLDWHITE bold=1"
 #color "type=CELL_SELECTION_SC fg=BOLDWHITE bg=VOIDGREEN bold=1"
+#color "type=STRG fg=VOIDGREEN bg=DEFAULT_COLOR"
