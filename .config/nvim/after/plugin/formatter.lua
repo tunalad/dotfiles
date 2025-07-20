@@ -67,6 +67,14 @@ local function stylua()
     }
 end
 
+local function gdformat()
+    return {
+        exe = "gdformat",
+        args = { "-" },
+        stdin = true,
+    }
+end
+
 require("formatter").setup({
     logging = true,
     log_level = vim.log.levels.WARN,
@@ -93,6 +101,7 @@ require("formatter").setup({
         yaml = prettierrc,
         c = require("formatter.filetypes.c"),
         cpp = require("formatter.filetypes.c"),
+        gdscript = gdformat,
 
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,
