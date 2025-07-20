@@ -1,22 +1,57 @@
--- LSP
-local lsp_zero = require("lsp-zero").preset("recommended")
 local lspconfig = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
---lsp.on_attach(function(client, bufnr)
---    lsp.default_keymaps({ buffer = bufnr })
---end)
+local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr }
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format({ async = true })
+    end, opts)
+end
 
---lsp.nvim_workspace()
+local servers = {
+    clangd = { autostart = false },
+    --jedi_language_server = { autostart = true },
+    pylsp = {
+        autostart = true,
+        settings = {
+            pylsp = {
+                plugins = {
+                    pycodestyle = { enabled = false },
+                    pyflakes = { enabled = false },
+                    pylint = { enabled = not true }, -- for now
+                    flake8 = { enabled = true },
+                },
+            },
+        },
+    },
+    lua_ls = { autostart = true },
+    gopls = { autostart = true },
+    vuels = { autostart = true },
+    ts_ls = { autostart = true },
+}
 
-lsp_zero.setup()
+for server, config in pairs(servers) do
+    config.on_attach = on_attach
+    config.capabilities = capabilities
+    lspconfig[server].setup(config)
+end
 
-lspconfig.clangd.setup({ autostart = false })
+-- DIAGNOSTIC
 
-lspconfig.jedi_language_server.setup({ autostart = true })
-lspconfig.lua_ls.setup({ autostart = true })
-lspconfig.gopls.setup({ autostart = true })
-lspconfig.vuels.setup({ autostart = true })
-lspconfig.ts_ls.setup({ autostart = true })
+vim.diagnostic.config({
+    virtual_text = true,
+    --virtual_text = {
+    --    severity = { min = vim.diagnostic.severity.WARN },
+    --},
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+})
 
 -- COMPLETION
 local cmp = require("cmp")

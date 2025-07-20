@@ -23,7 +23,6 @@ local plugins = {
     -----------------------
     --  IDE VIBES STUFF  --
     -----------------------
-    "dense-analysis/ale", -- linter
     "romgrk/barbar.nvim", -- tabs
     "nvim-tree/nvim-tree.lua", -- file explorer
     "lewis6991/gitsigns.nvim", -- git decors
@@ -71,10 +70,10 @@ local plugins = {
     -----------------------
     --      LSP-ZERO     --
     -----------------------
-    {
-        "VonHeikemen/lsp-zero.nvim", -- bundles stuff below
-        branch = "v3.x",
-    },
+    --{
+    --    "VonHeikemen/lsp-zero.nvim", -- bundles stuff below
+    --    branch = "v3.x",
+    --},
 
     -- LSP SUPPORT
     "neovim/nvim-lspconfig", -- lsp
