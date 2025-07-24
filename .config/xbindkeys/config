@@ -40,6 +40,9 @@
 "$FILE_MANAGER"
     m:0x15 + c:41
     Control+Shift+Mod2 + f
+"$FILE_MANAGER"
+    m:0x50 + c:26
+    Mod2+Mod4 + e
 "$BROWSER"
     m:0x15 + c:56
     Control+Shift+Mod2 + b
