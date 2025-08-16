@@ -5,7 +5,6 @@ local plugins = {
     --  IMPORTANT MINIES --
     -----------------------
     "ibhagwan/fzf-lua", -- fuzzy finder
-    "akinsho/toggleterm.nvim", -- terminal toggle
     {
         "Yggdroot/indentLine", -- line indent indicator
         event = { "BufRead", "BufNewFile" },
@@ -29,6 +28,7 @@ local plugins = {
     "mhartington/formatter.nvim", -- formatter
     {
         "folke/trouble.nvim", -- diagnostics
+        cmd = { "Trouble", "TroubleToggle" },
         opts = {},
     },
     {
@@ -37,6 +37,7 @@ local plugins = {
     },
     {
         "windwp/nvim-ts-autotag", -- tag closing and renaming support thing
+        ft = { "html", "javascript", "typescript", "jsx", "tsx", "vue" },
         config = function()
             require("nvim-ts-autotag").setup({
                 opts = {
@@ -98,9 +99,10 @@ local plugins = {
     },
     {
         "L3MON4D3/LuaSnip", -- snippet engine
+        event = "InsertEnter",
         dependencies = {
-            "rafamadriz/friendly-snippets", -- some epic snippets
             "saadparwaiz1/cmp_luasnip", -- connecting LuaSnip w/ cmp
+            "rafamadriz/friendly-snippets", -- some epic snippets
         },
     },
 }

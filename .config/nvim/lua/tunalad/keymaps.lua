@@ -22,6 +22,9 @@ vim.keymap.set("n", "<A-Down>", "<C-W>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-Up>", "<C-W>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<A-Right>", "<C-W>l", { noremap = true, silent = true })
 
+-- clearing the find results
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
+
 -- fzf
 vim.keymap.set("n", "<A-e>", ":FzfLua files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "rf", ":FzfLua oldfiles<CR>", { noremap = true, silent = true })

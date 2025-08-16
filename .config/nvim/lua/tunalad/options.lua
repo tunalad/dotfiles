@@ -10,6 +10,10 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.conceallevel = 0
+vim.opt.signcolumn = "yes"
+vim.opt.swapfile = false
+vim.opt.winborder = "single"
+--vim.opt.spell = true
 
 -- python tabbing
 vim.cmd("autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4")

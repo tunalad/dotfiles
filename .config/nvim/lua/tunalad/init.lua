@@ -14,10 +14,14 @@ vim.cmd("highlight Pmenu guibg=NONE")
 vim.cmd.colorscheme("codedark")
 
 -- godot project
-local gdproject = io.open(vim.fn.getcwd() .. "/project.godot", "r")
-if gdproject then
-    require("lspconfig").gdscript.setup(vim.lsp.protocol.make_client_capabilities())
-
-    io.close(gdproject)
-    vim.fn.serverstart("127.0.0.1:55432")
+local servers = vim.lsp.get_clients()
+local godot_server_exists = false
+for _, server in ipairs(servers) do
+    if server.name == "gdscript" then
+        godot_server_exists = true
+        break
+    end
+end
+if not godot_server_exists then
+    pcall(vim.fn.serverstart, "127.0.0.1:55432")
 end
