@@ -82,6 +82,6 @@ ignore_leading_the = "yes"
 empty_tag_marker = ""
 external_editor = "nvim"
 use_console_editor = "yes"
-lyrics_fetchers = genius, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
+lyrics_fetchers = plyrics, justsomelyrics, jahlyrics, genius, internet
 execute_on_song_change= "~/.config/ncmpcpp/scripts/song_notify.sh"
 #execute_on_song_change= notify-send "Now Playing" "$(mpc --format '%title% - %artist%' current)"
