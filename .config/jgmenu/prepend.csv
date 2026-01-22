@@ -1,0 +1,4 @@
+Browser,        $BROWSER,           internet-web-browser
+File manager,   $FILE_MANAGER,      system-file-manager
+Terminal,       $TERMINAL,          utilities-terminal
+^sep()
