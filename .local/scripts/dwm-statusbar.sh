@@ -45,16 +45,15 @@ clock() {
 }
 
 volume() {
-    DEFAULT_SINK=$(pactl info | awk -F': ' '/Default Sink:/{print $2}')
-    if [ "$(pactl get-sink-mute "$DEFAULT_SINK" | awk '{print $2}')" = "yes" ]; then
+    if amixer sget Master | grep -q "\[off\]"; then
         echo "🔇MUTE"
         exit
     fi
 
-    vol=$(pactl get-sink-volume "$DEFAULT_SINK" | awk '{print $5}')
+    vol=$(amixer sget Master | awk -F'[][]' '/Playback.*\[.*%\]/ {print $2; exit}')
     vol=${vol%?}
 
-    if pactl list sinks | grep -q "Active Port: analog-output-headphones"; then
+    if amixer -c 0 contents | grep -A2 "name='Headphone Jack'" | grep -q "values=on"; then
         icon="🎧"
     elif [ "$vol" -gt 70 ]; then
         icon="🔊"
@@ -86,19 +85,23 @@ kblayout() {
 
 jack_status() {
     status=$(jack_control status | sed -n 2p)
-    [ $status = "started" ] && echo "JACK  |"
+    [ "$status" = "started" ] && echo "JACK  |"
 }
 
 mailbox() {
-    MAILBOXES=$(ls ~/.local/share/mail)
+    MAILBOXES="$HOME/.local/share/mail"
+
+    [ -d "$MAILBOXES" ] || return
+
     mail_sum=0
 
-    for mail in $MAILBOXES; do
-        count=$(ls ~/.local/share/mail/"$mail"/INBOX/new 2>/dev/null | wc -l)
+    for mail in "$MAILBOXES"/*; do
+        [ -d "$mail" ] || continue
+        count=$(ls "$mail"/INBOX/new 2>/dev/null | wc -l)
         mail_sum=$((mail_sum + count))
     done
 
-    [ $mail_sum != 0 ] && echo " $mail_sum|"
+    [ "$mail_sum" != 0 ] && echo " $mail_sum|"
 }
 
 ncs() {
@@ -108,7 +111,7 @@ ncs() {
     anyLockOn=false
 
     for i in $lockStatus; do
-        if [ $i = "on" ]; then
+        if [ "$i" = "on" ]; then
             anyLockOn=true
             case $counter in
             0) echo -n "[CAP]" ;;
@@ -128,9 +131,11 @@ newsboat() {
     # newsboat -x print-unread is too slow
     # so we're taking count directly from the cache file
     CACHE_PATH="$HOME/.local/share/newsboat/cache.db"
+    [ -f $CACHE_PATH ] || return
+
     articles=$(sqlite3 $CACHE_PATH "SELECT COUNT(*) FROM rss_item WHERE unread = TRUE")
 
-    if [ $articles -gt "0" ]; then
+    if [ "$articles" -gt "0" ]; then
         echo -n " $articles|"
     fi
 }
@@ -138,7 +143,7 @@ newsboat() {
 tmux_sessions() {
     sessions=$(tmux list-sessions 2>/dev/null | wc -l)
 
-    if [ $sessions -gt "0" ]; then
+    if [ "$sessions" -gt "0" ]; then
         echo " $sessions|"
     fi
 }
