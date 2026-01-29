@@ -1,14 +1,16 @@
 #!/bin/sh
 
-DEFAULT_SINK=$(pactl list sinks | awk '/^Sink/{getline; getline; sub(/^[ \t]+Name: /, ""); print}' | sort | head -n 1)
+CARD="default"
+MIXER="Master"
 
 drawVol() {
-    muteStatus=$(pactl get-sink-mute $DEFAULT_SINK toggle)
-    getVol=$(pactl get-sink-volume $DEFAULT_SINK | awk '{print $5}')
+    muteStatus=$(amixer -D $CARD sget $MIXER | grep -o '\[on\]\|\[off\]' | head -n 1)
+
+    getVol=$(amixer -D $CARD sget $MIXER | grep -o '[0-9]*%' | head -n 1)
     getVolTrim=$(echo "$getVol" | sed 's/%$//')
     icon=NONE
 
-    if [ $muteStatus = "Mute: yes" ]; then
+    if [ "$muteStatus" = "[off]" ]; then
         getVol="Mute"
         icon=audio-off
     fi
@@ -16,7 +18,7 @@ drawVol() {
     # elif condition when uncommenting the thing below:
     #if [ $getVolTrim -gt 70 ]; then
     #    icon=audio-volume-high
-    #elif [  $getVolTrim -lt 30 ]; then
+    #elif [ $getVolTrim -lt 30 ]; then
     #    icon=audio-volume-low
     #else
     #    icon=audio-volume-medium
@@ -38,8 +40,8 @@ drawHelp() {
 setVol() {
     vol=$1
     if [ -n "$vol" ] && [ "$vol" -ge 0 ]; then
-        pactl set-sink-mute $DEFAULT_SINK no
-        pactl set-sink-volume $DEFAULT_SINK $vol%
+        amixer -D $CARD sset $MIXER unmute >/dev/null
+        amixer -D $CARD sset $MIXER $vol% >/dev/null
         drawVol
     else
         echo "Error: Invalid volume level. It must be a number greater than 0."
@@ -54,27 +56,26 @@ case $1 in
     shift 2
     ;;
 "-dec" | "--decrease")
-    pactl set-sink-mute $DEFAULT_SINK no
-    pactl set-sink-volume $DEFAULT_SINK -2%
+    amixer -D $CARD sset $MIXER unmute >/dev/null
+    amixer -D $CARD sset $MIXER 2%- >/dev/null
     drawVol
     ;;
 "-inc" | "--increase")
-    pactl set-sink-mute $DEFAULT_SINK no
-    pactl set-sink-volume $DEFAULT_SINK +2%
+    amixer -D $CARD sset $MIXER unmute >/dev/null
+    amixer -D $CARD sset $MIXER 2%+ >/dev/null
     drawVol
     ;;
 "-rs" | "-res" | "--restart")
-    pactl set-sink-mute $DEFAULT_SINK no
-    pactl set-sink-volume $DEFAULT_SINK 100%
+    amixer -D $CARD sset $MIXER unmute >/dev/null
+    amixer -D $CARD sset $MIXER 100% >/dev/null
     drawVol
     ;;
 "-t" | "--toggle")
-    pactl set-sink-mute $DEFAULT_SINK toggle
+    amixer -D $CARD sset $MIXER toggle >/dev/null
     drawVol
     ;;
-#$1 =~ ^[0-9]+$) pactl set-sink-mute @DEFAULT_SINK@ $1 ;;
 *)
-    pactl get-sink-volume $DEFAULT_SINK
+    amixer -D $CARD sget $MIXER
     drawVol
     ;;
 esac
