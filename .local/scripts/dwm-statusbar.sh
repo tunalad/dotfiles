@@ -45,25 +45,26 @@ clock() {
 }
 
 volume() {
-    if amixer sget Master | grep -q "\[off\]"; then
-        echo "🔇MUTE"
-        exit
+    vol=$(volumectl.sh)
+
+    if echo "$vol" | grep -q "MUTE"; then
+        echo "$vol"
+        return
     fi
 
-    vol=$(amixer sget Master | awk -F'[][]' '/Playback.*\[.*%\]/ {print $2; exit}')
-    vol=${vol%?}
+    vol_num=$(echo "$vol" | sed 's/%$//')
 
-    if amixer -c 0 contents | grep -A2 "name='Headphone Jack'" | grep -q "values=on"; then
+    if command -v amixer >/dev/null 2>&1 && amixer -c 0 contents 2>/dev/null | grep -A2 "name='Headphone Jack'" | grep -q "values=on"; then
         icon="🎧"
-    elif [ "$vol" -gt 70 ]; then
+    elif [ "$vol_num" -gt 70 ]; then
         icon="🔊"
-    elif [ "$vol" -lt 30 ]; then
+    elif [ "$vol_num" -lt 30 ]; then
         icon="🔈"
     else
         icon="🔉"
     fi
 
-    echo "$icon$vol%"
+    echo "$icon$vol"
 }
 
 cputemp() {
