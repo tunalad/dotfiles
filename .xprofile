@@ -1,4 +1,5 @@
 xrandr --output LVDS-1 --set "scaling mode" "Full"
+snixembed --fork &
 
 numlockx &
 xbindkeys -f $HOME/.config/xbindkeys/config &
@@ -12,7 +13,7 @@ xwallpaper --zoom $HOME/Pictures/paintings/William_Richards-Surf_On_Rocks_1890s.
 $HOME/.local/scripts/dwm-statusbar.sh &
 xcompmgr &
 
-nm-applet &
+#nm-applet &
 blueman-applet &
 
 $HOME/.local/scripts/battery-brighness.sh &
@@ -22,4 +23,8 @@ xset +dpms
 xset s blank
 xset s on
 
-systemctl --user import-environment DISPLAY XAUTHORITY
+easyeffects --hide-window --load-preset "gass" &
+
+if [ "$(basename $(cat /proc/1/comm))" = "systemd" ]; then
+    systemctl --user import-environment DISPLAY XAUTHORITY
+fi
