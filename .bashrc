@@ -12,12 +12,19 @@ PS1='[\u@\h \W]\$ '
 # = = = = = = = = = = #
 #     P R E T T Y     #
 # = = = = = = = = = = #
-export PS1="\[$(tput bold)\]\[\033[38;5;9m\][\[$(tput sgr0)\]\[\033[38;5;39m\]\u\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;2m\]@\[$(tput sgr0)\]\[\033[38;5;45m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;69m\]\W\[$(tput sgr0)\]\[\033[38;5;9m\]]\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] "
+
+DISTRO=$(cat /etc/os-release | awk -F= '/^ID=/{gsub(/"/, "", $2); print $2}')
+
+if [ $DISTRO = "arch" ]; then
+    PS1="\[$(tput bold)\]\[\033[38;5;9m\][\[$(tput sgr0)\]\[\033[38;5;39m\]\u\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;2m\]@\[$(tput sgr0)\]\[\033[38;5;45m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;69m\]\W\[$(tput sgr0)\]\[\033[38;5;9m\]]\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] "
+elif [ $DISTRO = "arch" ]; then
+    PS1='\[\e[38;2;0;170;0m\]\u\[\e[22m\]\[\e[38;2;255;85;255m\]@\[\e[22m\]\[\e[1m\]\[\e[38;2;50;255;90m\]\h\[\e[22m\] \[\e[1;34m\]\W\[\e[22m\]\[\e[38;5;11m\] \$ \[\e[m\]'
+fi
+
 bind "set colored-completion-prefix on"
 bind "set colored-stats on"
 
 # void prompt
-#export PS1='\[\e[38;2;0;170;0m\]\u\[\e[22m\]\[\e[38;2;255;85;255m\]@\[\e[22m\]\[\e[1m\]\[\e[38;2;50;255;90m\]\h\[\e[22m\] \[\e[1;34m\]\W\[\e[22m\]\[\e[38;5;11m\] \$ \[\e[m\]'
 
 # = = = = = = = = = = #
 #    A L I A S E S    #
@@ -94,11 +101,21 @@ complete -cf doas
 
 #nsp -r
 
-#export MCFLY_KEY_SCHEME=vim
-#export MCFLY_INTERFACE_VIEW=BOTTOM
-export MCFLY_DISABLE_MENU=TRUE
-export MCFLY_RESULTS_SORT=LAST_RUN
-eval "$(mcfly init bash)"
+# I had no idea that fzf already let me fzf the history
+# no need for mcfly or atuin ig
+export FZF_CTRL_R_OPTS="
+    --bind 'tab:accept'
+    --reverse
+    --height 100%
+    --prompt='$ '
+    --info=inline
+    --layout=reverse
+    --no-info
+    --border=none
+    --margin=3,2
+    --padding=2
+    --exact
+"
 
 # starting tmux when in terminal
 if [[ $TERM == "alacritty" && -z $TMUX ]]; then
