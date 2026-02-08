@@ -54,12 +54,7 @@ local plugins = {
     -----------------------
     "mechatroner/rainbow_csv", -- csv colors
     "goolord/alpha-nvim", -- greeter logo thing
-    {
-        "norcalli/nvim-colorizer.lua", -- colors preview
-        config = function()
-            require("colorizer").setup({})
-        end,
-    },
+    "norcalli/nvim-colorizer.lua", -- colors preview
     "NMAC427/guess-indent.nvim", -- detect indent size
 
     -----------------------

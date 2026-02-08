@@ -1,4 +1,4 @@
-local lspconfig = require("lspconfig")
+local lspconfig = vim.lsp.config
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local on_attach = function(client, bufnr)
@@ -33,12 +33,22 @@ local servers = {
     gopls = { autostart = true },
     vuels = { autostart = true },
     ts_ls = { autostart = true },
+    csharp_ls = { autostart = true },
+    --omnisharp = { autostart = true },
+    faustlsp = {
+        cmd = { "faustlsp" },
+        filetypes = { "faust" },
+        --workspace_required = true,
+        root_markers = { ".faustcfg.json", ".git" },
+        autostart = true,
+    },
 }
 
 for server, config in pairs(servers) do
     config.on_attach = on_attach
     config.capabilities = capabilities
-    lspconfig[server].setup(config)
+    --lspconfig[server].setup(config)
+    lspconfig(server, config)
 end
 
 -- DIAGNOSTIC

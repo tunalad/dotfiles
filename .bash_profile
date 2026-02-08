@@ -21,7 +21,8 @@ export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 #   - export GTK2_RC_FILES="$XDG_DATA_HOME/themes/$GTK_THEME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc":"$XDG_CONFIG_HOME/gtk-2.0/gtkrc.mine"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_QPA_PLATFORMTHEME="gtk2"
+#export QT_QPA_PLATFORMTHEME="gtk2"
+export QT_QPA_PLATFORMTHEME="qt6ct"
 # moving `~/.icons` to "$XDG_DATA_HOME/icons/" breaks gtk2 icons as well
 # idk how to fix that xd
 # also ROX LOVES making .icons in the home, so don't even bother
@@ -45,12 +46,12 @@ export SUDO_PROMPT=$'\a'"[sudo] password for %p: "
 #export XDG_CURRENT_DESKTOP=GTK
 export DOOMWADDIR="$XDG_CONFIG_HOME/zandronum"
 export CLIPBOARD_NOAUDIO=1
-
 export HISTSIZE=2000
 export HISTFILESIZE=2000
+export FAUSTINC="/usr/include/faust"
+export FAUSTLIB="/usr/share/faust"
 
 # ~/ junk cleaning
-export ALSA_CONFIG_PATH="$HOME/.config/alsa/asoundrc"
 export LEIN_HOME="$XDG_DATA_HOME/lein"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
@@ -88,9 +89,11 @@ export NVM_DIR="$HOME/.local/share/nvm"
 export LYNX_CFG="$XDG_CONFIG_HOME"/lynx.cfg
 export W3M_DIR="$XDG_STATE_HOME/w3m"
 export MIX_XDG="true"
+export TS3_CONFIG_DIR="$XDG_CONFIG_HOME"/ts3client
+export CRAWL_DIR="$XDG_DATA_HOME"/crawl/
 
 # GUI on login
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+if [ -z "${DISPLAY}" ] && [ "$(tty)" = "/dev/tty1" ]; then
     #if command -v river >/dev/null 2>&1; then
     #    exec river
     #else
