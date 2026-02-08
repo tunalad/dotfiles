@@ -17,14 +17,12 @@ DISTRO=$(cat /etc/os-release | awk -F= '/^ID=/{gsub(/"/, "", $2); print $2}')
 
 if [ $DISTRO = "arch" ]; then
     PS1="\[$(tput bold)\]\[\033[38;5;9m\][\[$(tput sgr0)\]\[\033[38;5;39m\]\u\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;2m\]@\[$(tput sgr0)\]\[\033[38;5;45m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;69m\]\W\[$(tput sgr0)\]\[\033[38;5;9m\]]\[$(tput sgr0)\]\[\033[38;5;11m\]\\$\[$(tput sgr0)\] "
-elif [ $DISTRO = "arch" ]; then
+elif [ $DISTRO = "void" ]; then
     PS1='\[\e[38;2;0;170;0m\]\u\[\e[22m\]\[\e[38;2;255;85;255m\]@\[\e[22m\]\[\e[1m\]\[\e[38;2;50;255;90m\]\h\[\e[22m\] \[\e[1;34m\]\W\[\e[22m\]\[\e[38;5;11m\] \$ \[\e[m\]'
 fi
 
 bind "set colored-completion-prefix on"
 bind "set colored-stats on"
-
-# void prompt
 
 # = = = = = = = = = = #
 #    A L I A S E S    #
