@@ -103,6 +103,7 @@ complete -cf doas
 
 # I had no idea that fzf already let me fzf the history
 # no need for mcfly or atuin ig
+eval "$(fzf --bash)"
 export FZF_CTRL_R_OPTS="
     --bind 'tab:accept'
     --reverse
