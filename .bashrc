@@ -99,22 +99,33 @@ complete -cf doas
 
 #nsp -r
 
-# I had no idea that fzf already let me fzf the history
-# no need for mcfly or atuin ig
-eval "$(fzf --bash)"
-export FZF_CTRL_R_OPTS="
-    --bind 'tab:accept'
-    --reverse
-    --height 100%
-    --prompt='$ '
-    --info=inline
-    --layout=reverse
-    --no-info
-    --border=none
-    --margin=3,2
-    --padding=2
-    --exact
-"
+fzf-history() {
+    # overengineering the fzf history
+    # because fukin void maintainers won't add mcfly to the repo
+    # (no apparent reason, they just forgot and the github bot closed it bruhh)
+    local selected
+
+    selected=$(
+        history | sed 's/^ *[0-9]\+ *//' | sed 's/[[:space:]]\+$//' | tac | awk '!seen[$0]++' | fzf \
+            --height 100% \
+            --reverse \
+            --prompt='$ ' \
+            --no-info \
+            --border=none \
+            --margin=3,2 \
+            --padding=2 \
+            --exact
+    ) || return
+
+    echo "${PS1@P}$selected"
+
+    eval "$selected"
+
+    history -s "$selected"
+    builtin history -a
+}
+
+bind -x '"\C-r": fzf-history'
 
 # starting tmux when in terminal
 if [[ $TERM == "alacritty" && -z $TMUX ]]; then
