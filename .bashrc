@@ -103,7 +103,7 @@ fzf-history() {
     # overengineering the fzf history
     # because fukin void maintainers won't add mcfly to the repo
     # (no apparent reason, they just forgot and the github bot closed it bruhh)
-    local selected
+    local selected key
 
     selected=$(
         history | sed 's/^ *[0-9]\+ *//' | sed 's/[[:space:]]\+$//' | tac | awk '!seen[$0]++' | fzf \
@@ -114,15 +114,24 @@ fzf-history() {
             --border=none \
             --margin=3,2 \
             --padding=2 \
-            --exact
+            --exact \
+            --expect=tab,enter
     ) || return
 
-    echo "${PS1@P}$selected"
+    key=$(head -1 <<<"$selected")
+    selected=$(tail -n +2 <<<"$selected")
 
-    eval "$selected"
+    [[ -z $selected ]] && return
 
-    history -s "$selected"
-    builtin history -a
+    if [[ $key == "tab" ]]; then
+        READLINE_LINE="$selected"
+        READLINE_POINT=${#READLINE_LINE}
+    else
+        echo "${PS1@P}$selected"
+        eval "$selected"
+        history -s "$selected"
+        builtin history -a
+    fi
 }
 
 bind -x '"\C-r": fzf-history'
