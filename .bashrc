@@ -105,10 +105,14 @@ fzf-history() {
     # (no apparent reason, they just forgot and the github bot closed it bruhh)
     local selected key
 
+    HISTCONTROL=ignoredups:erasedups
+    shopt -s histappend
+
     selected=$(
         history | sed 's/^ *[0-9]\+ *//' | sed 's/[[:space:]]\+$//' | tac | awk '!seen[$0]++' | fzf \
             --height 100% \
             --reverse \
+            --scheme=history \
             --prompt='$ ' \
             --no-info \
             --border=none \
@@ -135,9 +139,10 @@ fzf-history() {
 }
 
 bind -x '"\C-r": fzf-history'
+#eval "$(mcfly init bash)"
 
 # starting tmux when in terminal
-if [[ $TERM == "alacritty" && -z $TMUX ]]; then
+if [[ $TERM == "alacritty" || $TERM == "st-256color" && -z $TMUX ]]; then
     #tmux attach-session || tmux new-session
     #tmux attach-session -t main || tmux new-session -s main
     tmux new-session

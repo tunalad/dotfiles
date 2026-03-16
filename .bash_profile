@@ -37,7 +37,7 @@ export XKB_DEFAULT_VARIANT="latin,,"
 export BROWSER=zen-generic.AppImage
 export EDITOR=nvim
 export FILE_MANAGER="pcmanfm"
-export TERMINAL=alacritty
+export TERMINAL=st
 
 # other setup exports
 #export vblank_mode=0
@@ -46,8 +46,8 @@ export SUDO_PROMPT=$'\a'"[sudo] password for %p: "
 #export XDG_CURRENT_DESKTOP=GTK
 export DOOMWADDIR="$XDG_CONFIG_HOME/zandronum"
 export CLIPBOARD_NOAUDIO=1
-export HISTSIZE=2000
-export HISTFILESIZE=2000
+export HISTSIZE=20000
+export HISTFILESIZE=20000
 export FAUSTINC="/usr/include/faust"
 export FAUSTLIB="/usr/share/faust"
 
