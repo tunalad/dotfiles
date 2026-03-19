@@ -22,7 +22,7 @@ local plugins = {
     -----------------------
     --  IDE VIBES STUFF  --
     -----------------------
-    "romgrk/barbar.nvim", -- tabs
+    --"romgrk/barbar.nvim", -- tabs
     "nvim-tree/nvim-tree.lua", -- file explorer
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
@@ -83,15 +83,33 @@ local plugins = {
 
     -- AUTOCOMPLETE
     {
-        "hrsh7th/nvim-cmp", -- autocomplete core
-        dependencies = {
-            "hrsh7th/cmp-buffer", -- autocomplete buffer
-            "hrsh7th/cmp-path", -- autocomplete paths
-            "hrsh7th/cmp-nvim-lsp", -- autocomplete lsp
-            "hrsh7th/cmp-nvim-lsp-document-symbol", -- autocomplete documentSymbol
-            "hrsh7th/cmp-nvim-lsp-signature-help", -- shows function parameters
+        "saghen/blink.cmp",
+        version = "1.*",
+        opts = {
+            keymap = { preset = "super-tab" },
+            signature = { enabled = true },
+            completion = {
+                documentation = { auto_show = false },
+            },
         },
+        opts_extend = { "sources.default" },
     },
+    --{
+    --    "echasnovski/mini.completion",
+    --    config = function()
+    --        require("mini.completion").setup()
+    --    end,
+    --},
+    --{
+    --    "hrsh7th/nvim-cmp", -- autocomplete core
+    --    dependencies = {
+    --        "hrsh7th/cmp-buffer", -- autocomplete buffer
+    --        "hrsh7th/cmp-path", -- autocomplete paths
+    --        "hrsh7th/cmp-nvim-lsp", -- autocomplete lsp
+    --        "hrsh7th/cmp-nvim-lsp-document-symbol", -- autocomplete documentSymbol
+    --        "hrsh7th/cmp-nvim-lsp-signature-help", -- shows function parameters
+    --    },
+    --},
     {
         "L3MON4D3/LuaSnip", -- snippet engine
         event = "InsertEnter",
