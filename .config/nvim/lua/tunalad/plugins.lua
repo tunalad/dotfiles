@@ -22,8 +22,13 @@ local plugins = {
     -----------------------
     --  IDE VIBES STUFF  --
     -----------------------
-    --"romgrk/barbar.nvim", -- tabs
-    "nvim-tree/nvim-tree.lua", -- file explorer
+    {
+        "nvim-tree/nvim-tree.lua", -- file explorer
+        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFileToggle" },
+        config = function()
+            require("nvim-tree").setup()
+        end,
+    },
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
     {
@@ -52,7 +57,6 @@ local plugins = {
     -----------------------
     --       MISCS       --
     -----------------------
-    "mechatroner/rainbow_csv", -- csv colors
     "goolord/alpha-nvim", -- greeter logo thing
     "norcalli/nvim-colorizer.lua", -- colors preview
     "NMAC427/guess-indent.nvim", -- detect indent size
@@ -64,14 +68,8 @@ local plugins = {
     "tomasiser/vim-code-dark", -- vscode dark mode (colors are pretty nice)
 
     -----------------------
-    --      LSP-ZERO     --
+    --        LSP        --
     -----------------------
-    --{
-    --    "VonHeikemen/lsp-zero.nvim", -- bundles stuff below
-    --    branch = "v3.x",
-    --},
-
-    -- LSP SUPPORT
     "neovim/nvim-lspconfig", -- lsp
     {
         "williamboman/mason.nvim", -- lsp & linter manager
@@ -88,35 +86,12 @@ local plugins = {
         opts = {
             keymap = { preset = "super-tab" },
             signature = { enabled = true },
+            snippets = { preset = "default" },
             completion = {
-                documentation = { auto_show = false },
+                documentation = { auto_show = true },
             },
         },
         opts_extend = { "sources.default" },
-    },
-    --{
-    --    "echasnovski/mini.completion",
-    --    config = function()
-    --        require("mini.completion").setup()
-    --    end,
-    --},
-    --{
-    --    "hrsh7th/nvim-cmp", -- autocomplete core
-    --    dependencies = {
-    --        "hrsh7th/cmp-buffer", -- autocomplete buffer
-    --        "hrsh7th/cmp-path", -- autocomplete paths
-    --        "hrsh7th/cmp-nvim-lsp", -- autocomplete lsp
-    --        "hrsh7th/cmp-nvim-lsp-document-symbol", -- autocomplete documentSymbol
-    --        "hrsh7th/cmp-nvim-lsp-signature-help", -- shows function parameters
-    --    },
-    --},
-    {
-        "L3MON4D3/LuaSnip", -- snippet engine
-        event = "InsertEnter",
-        dependencies = {
-            "saadparwaiz1/cmp_luasnip", -- connecting LuaSnip w/ cmp
-            "rafamadriz/friendly-snippets", -- some epic snippets
-        },
     },
 }
 

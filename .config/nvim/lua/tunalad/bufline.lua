@@ -20,17 +20,40 @@ end
 vim.opt.tabline = "%!v:lua.simple_tabline()"
 
 -- binds
+local function listed_bufs()
+    return vim.tbl_filter(function(b)
+        return vim.api.nvim_buf_is_loaded(b) and vim.bo[b].buflisted
+    end, vim.api.nvim_list_bufs())
+end
+
 for i = 1, 9 do
     vim.keymap.set("n", "<A-" .. i .. ">", function()
-        local bufs = vim.tbl_filter(function(b)
-            return vim.api.nvim_buf_is_loaded(b)
-        end, vim.api.nvim_list_bufs())
+        local bufs = listed_bufs()
         if bufs[i] then
             vim.api.nvim_set_current_buf(bufs[i])
         end
     end)
 end
 
-vim.keymap.set("n", "<A-,>", ":bprev<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<A-.>", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<A-,>", function()
+    local bufs = listed_bufs()
+    local cur = vim.api.nvim_get_current_buf()
+    for i, b in ipairs(bufs) do
+        if b == cur then
+            vim.api.nvim_set_current_buf(bufs[i - 1] or bufs[#bufs])
+            return
+        end
+    end
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<A-.>", function()
+    local bufs = listed_bufs()
+    local cur = vim.api.nvim_get_current_buf()
+    for i, b in ipairs(bufs) do
+        if b == cur then
+            vim.api.nvim_set_current_buf(bufs[i + 1] or bufs[1])
+            return
+        end
+    end
+end, { noremap = true, silent = true })
 vim.keymap.set("n", "<A-c>", ":bdelete<CR>", { noremap = true, silent = true })
