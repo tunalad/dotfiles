@@ -84,7 +84,19 @@ local plugins = {
         "saghen/blink.cmp",
         version = "1.*",
         opts = {
-            keymap = { preset = "super-tab" },
+            keymap = {
+                preset = "super-tab",
+                ["<CR>"] = {
+                    function(cmp)
+                        if cmp.snippet_active() then
+                            return cmp.accept()
+                        else
+                            return cmp.select_and_accept()
+                        end
+                    end,
+                    "fallback",
+                },
+            },
             signature = { enabled = true },
             snippets = { preset = "default" },
             completion = {
