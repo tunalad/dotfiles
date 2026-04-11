@@ -12,4 +12,7 @@ case "$kblayout $kbvari" in
 *) echo "$kblayout$kbvari" ;;
 esac
 
+# for modbar
+[ -p /var/run/user/1000/modbar.pipe ] && echo "!kb" >/var/run/user/1000/modbar.pipe
+
 notify-send --icon=NONE -r 9993 "Keyboard layout changed:" "$(setxkbmap -query | grep -e 'layout:\|variant:')"

@@ -56,6 +56,8 @@ setVolume() {
         amixer -D $CARD sset $MIXER unmute >/dev/null 2>&1
         amixer -D $CARD sset $MIXER $vol% >/dev/null
     fi
+
+    [ -p /var/run/user/1000/modbar.pipe ] && echo '!volume' >/var/run/user/1000/modbar.pipe
 }
 
 adjustVolume() {
@@ -76,6 +78,8 @@ adjustVolume() {
         amixer -D $CARD sset $MIXER unmute >/dev/null 2>&1
         amixer -D $CARD sset $MIXER ${amount}%${direction} >/dev/null
     fi
+
+    [ -p /var/run/user/1000/modbar.pipe ] && echo '!volume' >/var/run/user/1000/modbar.pipe
 }
 
 toggleMute() {
