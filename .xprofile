@@ -10,7 +10,8 @@ mpdscribble --conf $HOME/.config/mpdscribble/mpdscribble.conf &
 
 #xwallpaper --zoom /usr/share/backgrounds/arch-linux-2d/Arch1.jpg &
 xwallpaper --zoom $HOME/Pictures/paintings/William_Richards-Surf_On_Rocks_1890s.jpg &
-$HOME/.local/scripts/dwm-statusbar.sh &
+#$HOME/.local/scripts/dwm-statusbar.sh &
+modbar &
 xcompmgr &
 
 #nm-applet &
@@ -28,3 +29,6 @@ easyeffects --hide-window --load-preset "gass" &
 if [ "$(basename $(cat /proc/1/comm))" = "systemd" ]; then
     systemctl --user import-environment DISPLAY XAUTHORITY
 fi
+
+# making dmenu cache, since first runs are often slow
+dmenu_path > /dev/null &

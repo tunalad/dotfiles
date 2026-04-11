@@ -147,3 +147,5 @@ if [[ $TERM == "alacritty" || $TERM == "st-256color" && -z $TMUX ]]; then
     #tmux attach-session -t main || tmux new-session -s main
     tmux new-session
 fi
+
+nsp -r
