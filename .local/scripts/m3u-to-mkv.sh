@@ -45,9 +45,19 @@ if [[ ! -s $CONCAT_FILE ]]; then
     exit 1
 fi
 
+WIDTH=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$COVER")
+HEIGHT=$(ffprobe -v error -select_streams v:0 -show_entries stream=height -of csv=p=0 "$COVER")
+
+# battling youtube forcing shorts
+if [[ "$WIDTH" -eq "$HEIGHT" ]]; then
+    VF="scale=722:720"
+else
+    VF="scale=-2:720"
+fi
+
 echo "Creating video from playlist..."
 ffmpeg -loop 1 -r 1 -i "$COVER" -f concat -safe 0 -i "$CONCAT_FILE" \
-    -vf "scale=-2:720" \
+    -vf "$VF" \
     -c:v libx264 -preset fast -tune stillimage -c:a copy -pix_fmt yuv420p \
     -shortest "$OUTPUT"
 
