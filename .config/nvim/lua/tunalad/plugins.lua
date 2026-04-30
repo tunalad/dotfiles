@@ -23,11 +23,10 @@ local plugins = {
     --  IDE VIBES STUFF  --
     -----------------------
     {
-        "nvim-tree/nvim-tree.lua", -- file explorer
-        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFindFileToggle" },
-        config = function()
-            require("nvim-tree").setup()
-        end,
+        "prichrd/netrw.nvim", -- file explorer (pimping up default netrw)
+        dependencies = {
+            "nvim-tree/nvim-web-devicons", -- dev icons
+        },
     },
     "lewis6991/gitsigns.nvim", -- git decors
     "mhartington/formatter.nvim", -- formatter
@@ -35,10 +34,6 @@ local plugins = {
         "folke/trouble.nvim", -- diagnostics
         cmd = { "Trouble", "TroubleToggle" },
         opts = {},
-    },
-    {
-        "nvim-treesitter/nvim-treesitter", -- (better) syntax highlighting
-        build = ":TSUpdate",
     },
     {
         "windwp/nvim-ts-autotag", -- tag closing and renaming support thing
@@ -51,13 +46,11 @@ local plugins = {
             })
         end,
     },
-    "nvim-tree/nvim-web-devicons", -- dev icons for file explorer & barbar
     "stevearc/aerial.nvim", -- code outline/map
 
     -----------------------
     --       MISCS       --
     -----------------------
-    "goolord/alpha-nvim", -- greeter logo thing
     "norcalli/nvim-colorizer.lua", -- colors preview
     "NMAC427/guess-indent.nvim", -- detect indent size
 
@@ -78,10 +71,8 @@ local plugins = {
         end,
     },
     "williamboman/mason-lspconfig.nvim", -- connecting lspconfig w/ mason
-
-    -- AUTOCOMPLETE
     {
-        "saghen/blink.cmp",
+        "saghen/blink.cmp", -- autocompleter
         version = "1.*",
         opts = {
             keymap = {
