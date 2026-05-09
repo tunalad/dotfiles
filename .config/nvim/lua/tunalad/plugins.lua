@@ -74,6 +74,16 @@ local plugins = {
     {
         "saghen/blink.cmp", -- autocompleter
         version = "1.*",
+        dependencies = {
+            {
+                "L3MON4D3/LuaSnip",
+                build = "make install_jsregexp",
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                    require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/" })
+                end,
+            },
+        },
         opts = {
             keymap = {
                 preset = "super-tab",
@@ -89,7 +99,7 @@ local plugins = {
                 },
             },
             signature = { enabled = true },
-            snippets = { preset = "default" },
+            snippets = { preset = "luasnip" },
             completion = {
                 documentation = { auto_show = true },
             },

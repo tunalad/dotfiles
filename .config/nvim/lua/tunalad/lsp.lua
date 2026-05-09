@@ -16,12 +16,11 @@ end
 local servers = {
     clangd = { autostart = false },
     jedi_language_server = { autostart = true },
-    lua_ls = { autostart = true },
+    stylua = { autostart = true },
     gopls = { autostart = true },
     vuels = { autostart = true },
     ts_ls = { autostart = true },
     csharp_ls = { autostart = true },
-    --omnisharp = { autostart = true },
     faustlsp = {
         cmd = { "faustlsp" },
         filetypes = { "faust" },
@@ -33,7 +32,6 @@ local servers = {
 
 for server, config in pairs(servers) do
     config.on_attach = on_attach
-    --config.capabilities = capabilities
     lspconfig(server, config)
     if config.autostart then
         vim.lsp.enable(server)
@@ -43,9 +41,6 @@ end
 -- DIAGNOSTIC
 vim.diagnostic.config({
     virtual_text = true,
-    --virtual_text = {
-    --    severity = { min = vim.diagnostic.severity.WARN },
-    --},
     signs = true,
     underline = true,
     update_in_insert = false,
