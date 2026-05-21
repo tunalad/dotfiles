@@ -1,12 +1,13 @@
 #!/bin/sh
 
 # inspired by zellij's random session names
-WORDS_PATH=/usr/share/dict/*
-if [ WORDS_PATH -lt 1 ]; then
-    return
+WORDS_PATH=/usr/share/dict
+
+if [ ! -d $WORDS_PATH ] || [ -z "$(ls $WORDS_PATH)" ]; then
+    exit 0
 fi
 
-two_words=$(shuf -n2 $WORDS_PATH | paste -sd'-')
+two_words=$(shuf -n2 $WORDS_PATH/* | paste -sd'-')
 
 original_name=$(tmux display-message -p '#{session_name}')
 
