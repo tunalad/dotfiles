@@ -33,7 +33,7 @@ fi
 
 # starting tmux if not in tty
 if [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then
-    tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf" -f "$XDG_CONFIG_HOME/tmux/${DISTRO}.conf" new-session
+    tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf" -f "$XDG_CONFIG_HOME/tmux/style/${DISTRO}.conf" new-session
 fi
 
 #nsp -r
