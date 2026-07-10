@@ -1,36 +1,35 @@
+# settings
 xrandr --output LVDS-1 --set "scaling mode" "Full"
-snixembed --fork &
+xset +dpms s blank s on
 
+# services
 numlockx &
 xbindkeys -f $HOME/.config/xbindkeys/config &
 dunst -conf $HOME/.config/dunst/dunstrc &
+xcompmgr &
+snixembed --fork &
 
+# audio
 mpd &
 mpdscribble --conf $HOME/.config/mpdscribble/mpdscribble.conf &
+easyeffects --hide-window --load-preset "gass" &
 
+# visuals
 #xwallpaper --zoom /usr/share/backgrounds/arch-linux-2d/Arch1.jpg &
-xwallpaper --zoom $HOME/Pictures/paintings/William_Richards-Surf_On_Rocks_1890s.jpg &
+xwallpaper --zoom $HOME/Pictures/paintings/surf-on-rocks-dithered.png &
 #$HOME/.local/scripts/dwm-statusbar.sh &
 modbar &
-xcompmgr &
+conky &
 
+# applets
 #nm-applet &
 blueman-applet &
 
+# scripts
 $HOME/.local/scripts/battery-brighness.sh &
+dmenu_path >/dev/null & # making dmenu cache, cuz first runs are often slow
 
-# turning off the monitor when not using it
-xset +dpms
-xset s blank
-xset s on
-
-easyeffects --hide-window --load-preset "gass" &
-
-if [ "$(basename $(cat /proc/1/comm))" = "systemd" ]; then
+# env
+if read -r init </proc/1/comm && [ "$init" = "systemd" ]; then
     systemctl --user import-environment DISPLAY XAUTHORITY
 fi
-
-conky &
-
-# making dmenu cache, since first runs are often slow
-dmenu_path > /dev/null &

@@ -14,3 +14,5 @@ bind-key k up
 bind-key l open
 bind-key g home
 bind-key G end
+
+#browser "cha %u"
