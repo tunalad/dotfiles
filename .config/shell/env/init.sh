@@ -2,9 +2,10 @@
 for p in \
     "$HOME/.local/bin" \
     "$HOME/.local/scripts" \
+    "$HOME/.local/appimage" \
+    "$HOME/.local/share/go/bin" \
     "$HOME/.local/share/npm/bin" \
-    "$HOME/.local/share/cargo/bin"
-do
+    "$HOME/.local/share/cargo/bin"; do
     PATH="$p:$PATH"
 done
 export PATH
