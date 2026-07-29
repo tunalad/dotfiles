@@ -15,21 +15,11 @@ SHELL_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/shell"
 
 . "$SHELL_DIR/aliases.sh"
 . "$SHELL_DIR/functions.sh"
-. "$SHELL_DIR/style/${DISTRO}.sh"
+. "$SHELL_DIR/distro/${DISTRO}.sh"
 
-# bash specific:
-if [ -n "$BASH_VERSION" ]; then
-    # completions
-    lazy_load_completion yt-dlp /usr/share/bash-completion/completions/yt-dlp
-    lazy_load_completion tmux /usr/share/bash-completion/completions/tmux
-    lazy_load_completion git /usr/share/bash-completion/completions/git
-    complete -cf doas
-
-    # binds
-    bind "set colored-completion-prefix on"
-    bind "set colored-stats on"
-    bind -x '"\C-r": fzf_history'
-fi
+# shell-specific
+[ -n "$BASH_VERSION" ] && . "$SHELL_DIR/bash.sh"
+[ -n "$ZSH_VERSION" ]  && . "$SHELL_DIR/zsh.sh"
 
 # starting tmux if not in tty
 if [ -z "$TMUX" ] && [ "$TERM" != "linux" ]; then

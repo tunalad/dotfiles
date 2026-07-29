@@ -3,6 +3,7 @@ export SUDO_PROMPT=$'\a'"[sudo] password for %p: "
 export CLIPBOARD_NOAUDIO=1
 export HISTSIZE=20000
 export HISTFILESIZE=20000
+export SAVEHIST=20000
 
 # theming
 export GTK_THEME="Windows-10-Dark"

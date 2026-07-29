@@ -24,7 +24,6 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export _JAVA_AWT_WM_NONREPARENTING=1
 export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
 export LESSHISTFILE=-
-export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
@@ -43,3 +42,4 @@ export W3M_DIR="$XDG_STATE_HOME/w3m"
 export MIX_XDG="true"
 export TS3_CONFIG_DIR="$XDG_CONFIG_HOME"/ts3client
 export CRAWL_DIR="$XDG_DATA_HOME"/crawl/
+
