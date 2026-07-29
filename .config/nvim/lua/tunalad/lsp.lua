@@ -1,5 +1,6 @@
-local lspconfig = vim.lsp.config
---local capabilities = require("blink.cmp").get_lsp_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+require("mason-lspconfig").setup({})
 
 local on_attach = function(client, bufnr)
     local opts = { buffer = bufnr }
@@ -14,28 +15,28 @@ local on_attach = function(client, bufnr)
 end
 
 local servers = {
-    clangd = { autostart = false },
-    jedi_language_server = { autostart = true },
-    stylua = { autostart = true },
-    gopls = { autostart = true },
-    vuels = { autostart = true },
-    ts_ls = { autostart = true },
-    csharp_ls = { autostart = true },
+    clangd = {},
+    jedi_language_server = {},
+    gopls = {},
+    vuels = {},
+    ts_ls = {},
+    csharp_ls = {},
+    arduino_language_server = {
+        cmd = { "arduino-language-server", "-fqbn", "arduino:avr:uno" },
+        filetypes = { "arduino" },
+    },
     faustlsp = {
         cmd = { "faustlsp" },
         filetypes = { "faust" },
-        --workspace_required = true,
         root_markers = { ".faustcfg.json", ".git" },
-        autostart = true,
     },
 }
 
 for server, config in pairs(servers) do
+    config.capabilities = capabilities
     config.on_attach = on_attach
-    lspconfig(server, config)
-    if config.autostart then
-        vim.lsp.enable(server)
-    end
+    vim.lsp.config(server, config)
+    vim.lsp.enable(server)
 end
 
 -- DIAGNOSTIC

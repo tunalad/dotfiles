@@ -46,7 +46,12 @@ local plugins = {
             })
         end,
     },
-    "stevearc/aerial.nvim", -- code outline/map
+    {
+        "liuchengxu/vista.vim", -- code outline/map
+        keys = {
+            { "<A-a>", "<cmd>Vista!!<CR>" },
+        },
+    },
 
     -----------------------
     --       MISCS       --
@@ -66,6 +71,8 @@ local plugins = {
     "neovim/nvim-lspconfig", -- lsp
     {
         "williamboman/mason.nvim", -- lsp & linter manager
+        lazy = false,
+        build = ":MasonUpdate",
         config = function()
             require("mason").setup({})
         end,
@@ -80,7 +87,9 @@ local plugins = {
                 build = "make install_jsregexp",
                 config = function()
                     require("luasnip.loaders.from_vscode").lazy_load()
-                    require("luasnip.loaders.from_lua").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/" })
+                    require("luasnip.loaders.from_lua").lazy_load({
+                        paths = vim.fn.stdpath("config") .. "/lua/snippets/",
+                    })
                 end,
             },
         },
