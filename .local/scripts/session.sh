@@ -37,7 +37,7 @@ call_reboot() {
 }
 
 #pick=$(echo " Power off\n Reboot\n Lock\n Logout" | dmenu -i -l 5)
-pick=$(echo " Power off\n Reboot\n Lock" | dmenu -i -l 5)
+pick=$(echo " Power off\n Reboot\n Lock\n Logout" | dmenu -i -l 5)
 
 case $pick in
 " Power off") call_shutdown ;;

@@ -85,16 +85,16 @@
     XF86AudioMute
 
 # multimedia keys
-"playerctl play-pause"
+"mediactl play-pause"
     m:0x10 + c:172
     Mod2 + XF86AudioPlay
-"playerctl stop"
+"mediactl stop"
     m:0x10 + c:174
     Mod2 + XF86AudioStop
-"playerctl previous"
+"mediactl previous"
     m:0x10 + c:173
     Mod2 + XF86AudioPrev
-"playerctl next"
+"mediactl next"
     m:0x10 + c:171
     Mod2 + XF86AudioNext
 

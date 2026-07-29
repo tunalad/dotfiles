@@ -23,7 +23,7 @@ conky &
 
 # applets
 #nm-applet &
-blueman-applet &
+#blueman-applet &
 
 # scripts
 $HOME/.local/scripts/battery-brighness.sh &
