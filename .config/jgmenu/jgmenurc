@@ -74,3 +74,4 @@ terminal_args = -e
 csv_no_duplicates = 1
 at_pointer 1
 #csv_cmd = jgmenu_run ob --cmd='obmenu-generator -i'
+csv_cmd = ~/.config/jgmenu/build-menu.sh
