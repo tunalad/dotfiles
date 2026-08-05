@@ -17,12 +17,16 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_RUNTIME_DIR="/run/user/1000"
 
+# initializing env
 . "$SHELL_DIR/env/apps.sh"
 . "$SHELL_DIR/env/settings.sh"
 . "$SHELL_DIR/env/sprucing.sh"
 
 # other envs
-export DOOMWADDIR="$HOME/Games/zandronum"
+export DOOMWADDIR="$HOME/.local/games/zandronum"
 
 export FAUSTINC="/usr/include/faust"
 export FAUSTLIB="/usr/share/faust"
+
+# distro specifics
+[ -f "$SHELL_DIR/distro/${DISTRO}_profile.sh" ] && . "$SHELL_DIR/distro/${DISTRO}_profile.sh"
