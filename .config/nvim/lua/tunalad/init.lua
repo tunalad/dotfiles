@@ -14,6 +14,9 @@ vim.g.codedark_transparent = 1
 vim.cmd("highlight Pmenu guibg=NONE")
 vim.cmd.colorscheme("codedark")
 
+-- making quakec real
+vim.filetype.add({ extension = { qc = "quakec" } })
+
 -- godot project
 local servers = vim.lsp.get_clients()
 local godot_server_exists = false

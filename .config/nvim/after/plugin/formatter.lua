@@ -75,6 +75,54 @@ local function gdformat()
     }
 end
 
+local function clangformat()
+    return {
+        exe = "clang-format",
+        args = {
+            "-assume-filename",
+            util.escape_path(util.get_current_buffer_file_name()),
+        },
+        stdin = true,
+        try_node_modules = true,
+    }
+end
+
+local function astyle()
+    return {
+        exe = "astyle",
+        args = {
+            "--stdio",
+            "--style=kr",
+            "--indent=spaces=4",
+            "--convert-tabs",
+            "--align-pointer=name",
+            "--align-reference=name",
+            "--pad-header",
+            "--unpad-paren",
+            "--pad-oper",
+            "--keep-one-line-blocks",
+            "--options=none",
+            util.escape_path(util.get_current_buffer_file_name()),
+        },
+        stdin = true,
+    }
+end
+
+local function qcstyle()
+    local width = vim.bo.shiftwidth > 0 and vim.bo.shiftwidth or vim.bo.tabstop
+    local indent_flag = vim.bo.expandtab and string.format("-s%d", width) or string.format("-t%d", width)
+
+    return {
+        exe = "qcstyle",
+        args = {
+            "--style=quakec",
+            "-n",
+            indent_flag,
+        },
+        stdin = true,
+    }
+end
+
 require("formatter").setup({
     logging = true,
     log_level = vim.log.levels.WARN,
@@ -99,9 +147,13 @@ require("formatter").setup({
         css = prettierrc,
         json = prettierrc,
         yaml = prettierrc,
-        c = require("formatter.filetypes.c"),
-        cpp = require("formatter.filetypes.c"),
+        --c = require("formatter.filetypes.c"),
+        --cpp = require("formatter.filetypes.c"),
+        c = clangformat,
+        cpp = clangformat,
         gdscript = gdformat,
+        quakec = qcstyle,
+        qc = qcstyle,
 
         ["*"] = {
             require("formatter.filetypes.any").remove_trailing_whitespace,
