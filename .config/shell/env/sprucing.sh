@@ -42,4 +42,6 @@ export W3M_DIR="$XDG_STATE_HOME/w3m"
 export MIX_XDG="true"
 export TS3_CONFIG_DIR="$XDG_CONFIG_HOME"/ts3client
 export CRAWL_DIR="$XDG_DATA_HOME"/crawl/
-
+export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python

@@ -1,14 +1,16 @@
 # bin paths
+_path=
 for p in \
+    "$HOME/.local/.shimlinks" \
     "$HOME/.local/bin" \
     "$HOME/.local/scripts" \
     "$HOME/.local/appimage" \
     "$HOME/.local/share/go/bin" \
     "$HOME/.local/share/npm/bin" \
     "$HOME/.local/share/cargo/bin"; do
-    PATH="$p:$PATH"
+    _path="$_path:$p"
 done
-export PATH
+export PATH="${_path#:}:$PATH"
 
 # xdg base dirs
 export XDG_CONFIG_HOME="$HOME/.config"
