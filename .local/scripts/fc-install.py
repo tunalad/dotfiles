@@ -2,9 +2,8 @@
 import os
 import sys
 import subprocess
-import patoolib  # `patool` module required
-import tempfile
 import shutil
+import tempfile
 
 FONT_EXTENSIONS = (".ttf", ".otf")
 
@@ -42,17 +41,13 @@ def install_font(font_file, font_dir):
 
 
 def install_from_archive(archive_file, font_dir):
+    temp_dir = tempfile.mkdtemp(prefix="fc-install-")
     try:
-        # create temp dir in /tmp
-        temp_dir = tempfile.mkdtemp(prefix="fc-install-")
-
         # extract fonts from the archive
-        extracted_dir = patoolib.extract_archive(
-            archive_file, outdir=temp_dir, interactive=False
-        )
+        shutil.unpack_archive(archive_file, temp_dir)
 
         # find fonts
-        for root, dirs, files in os.walk(extracted_dir):
+        for root, dirs, files in os.walk(temp_dir):
             for file in files:
                 if file.lower().endswith(FONT_EXTENSIONS):
                     font_path = os.path.join(root, file)
